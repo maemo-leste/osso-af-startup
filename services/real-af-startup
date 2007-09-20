@@ -150,8 +150,9 @@ start)
     fi
 
     wizback_method advance $ADVANCE_STEPS
+    wizback_method set_progress_visible false
+    wizback_method set_descriptions_visible false
     sleep 1
-    wizback_method quit
 
     if [ -x /usr/bin/rhapsody-installer.sh ]; then
       /usr/bin/rhapsody-installer.sh
@@ -159,6 +160,13 @@ start)
     rm -f $HOME/first-boot-flag
     rm -f /tmp/suw-user-cancelled.tmp
     touch /tmp/.check_auto_install
+
+    if [ -x $AF_INIT_DIR/startup-greeting.sh ]; then
+      source $AF_INIT_DIR/startup-greeting.sh firstboot
+    fi
+
+    wizback_method quit
+
   else
     if [ -x $AF_INIT_DIR/startup-wizard.sh ]; then
       source $AF_INIT_DIR/startup-wizard.sh start
