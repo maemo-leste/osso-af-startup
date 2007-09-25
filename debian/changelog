@@ -1,3 +1,10 @@
+osso-af-startup (1.47-1~unreleased) unstable; urgency=low
+
+  * /tmp/first-boot-flag-tmp removed before checking for the first boot flag.
+    Patch from Andrey Petrov. Fixes: NB#69841
+
+ -- Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>  Tue, 25 Sep 2007 14:21:38 +0300
+
 osso-af-startup (1.46-5) unstable; urgency=low
 
   * Do not quit wizback after the wizards, but obscure it with osso-startup-greeting

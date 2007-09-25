@@ -34,6 +34,13 @@ start)
 	# in case of first boot, start services requiered by
 	# startup wizards. Touch a temporary flag file so these
 	# services won't start twice
+	
+	# first remove the tmp flag if it is already there. This 
+	# happens if we get back to this runlevel without rebooting
+	
+	if [ -e /tmp/first-boot-flag-tmp ]; then
+	  rm -rf /tmp/first-boot-flag-tmp
+	fi
 
 	if [ -e /home/user/first-boot-flag ]; then
 	  /etc/init.d/dnsmasq start
