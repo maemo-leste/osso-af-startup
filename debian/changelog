@@ -1,4 +1,4 @@
-osso-af-startup (1.47-1~unreleased) unstable; urgency=low
+osso-af-startup (1.47-1) unstable; urgency=low
 
   * /tmp/first-boot-flag-tmp removed before checking for the first boot flag.
     Patch from Andrey Petrov. Fixes: NB#69841
