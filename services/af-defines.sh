@@ -125,7 +125,7 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
       _SUDO='sudo'
     fi
     $_SUDO /usr/bin/osso-product-info 1> /tmp/.opi.tmp.tmp 2> /dev/null
-    $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp
+    $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp 2> /dev/null
     unset _SUDO
   fi
   if [ -r /tmp/.opi.tmp ]; then
