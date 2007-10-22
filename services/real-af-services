@@ -2,7 +2,7 @@
 #
 # This file is part of osso-af-startup.
 #
-# Copyright (C) 2004-2006 Nokia Corporation. All rights reserved.
+# Copyright (C) 2004-2007 Nokia Corporation. All rights reserved.
 #
 # Contact: Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>
 #
@@ -36,6 +36,11 @@ start)
     sleep 1
     INC=`expr $INC + 1`
   done
+
+  # start at-spi 
+  if [ -x /etc/init.d/at-spi ]; then
+    /etc/init.d/at-spi start
+  fi
 
   source $AF_INIT_DIR/sapwood-server.sh start
   source $AF_INIT_DIR/matchbox.sh start
@@ -72,6 +77,11 @@ stop)
     source $AF_INIT_DIR/matchbox.sh stop
   fi
   source $AF_INIT_DIR/sapwood-server.sh stop
+
+  if [ -x /etc/init.d/at-spi ]; then
+    /etc/init.d/at-spi stop
+  fi
+
   source $AF_INIT_DIR/dbus-sessionbus.sh stop
   source $AF_INIT_DIR/gconf-daemon.sh stop
   source $AF_INIT_DIR/temp-reaper-startup.sh stop

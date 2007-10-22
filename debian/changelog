@@ -1,3 +1,9 @@
+osso-af-startup (1.48-1) unstable; urgency=low
+
+  * Added at-spi startup and shutdown.
+
+ -- Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>  Mon, 22 Oct 2007 13:51:51 +0300
+
 osso-af-startup (1.47-1) unstable; urgency=low
 
   * /tmp/first-boot-flag-tmp removed before checking for the first boot flag.
