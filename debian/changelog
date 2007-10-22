@@ -1,3 +1,10 @@
+osso-af-startup (1.49-1~unreleased) unstable; urgency=low
+
+  * Fixed the osso-product-info code to handle multiple simultaneous users.
+    Fixes: NB#69969
+
+ -- Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>  Mon, 22 Oct 2007 14:30:17 +0300
+
 osso-af-startup (1.48-1) unstable; urgency=low
 
   * Added at-spi startup and shutdown.
