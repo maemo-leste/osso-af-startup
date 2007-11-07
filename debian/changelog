@@ -2,6 +2,7 @@ osso-af-startup (1.49-1~unreleased) unstable; urgency=low
 
   * Fixed the osso-product-info code to handle multiple simultaneous users.
     Fixes: NB#69969
+  * Raised the pty limit from 4 to 16. Fixes: NB#71003
 
  -- Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>  Mon, 22 Oct 2007 14:30:17 +0300
 
