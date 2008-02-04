@@ -4,7 +4,7 @@
 #
 # Copyright (C) 2004-2007 Nokia Corporation. All rights reserved.
 #
-# Contact: Kimmo H‰m‰l‰inen <kimmo.hamalainen@nokia.com>
+# Contact: Kimmo H√§m√§l√§inen <kimmo.hamalainen@nokia.com>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License 
@@ -83,9 +83,7 @@ start)
 
     if [ -x $AF_INIT_DIR/startup-wizard.sh ]; then
       wizback_method advance 1
-      wizback_method set_progress_visible false
       source $AF_INIT_DIR/startup-wizard.sh start
-      wizback_method set_progress_visible true
 
       if [ "x$AFTER_SUW_RESTART_NEEDED" != "x0" ]; then
       	source $AF_INIT_DIR/af-defines.sh ;# re-read locale variables
@@ -103,7 +101,6 @@ start)
     # Give Backup a chance to restore settings automatically
     if [ -x $AF_INIT_DIR/osso-backup-startup.sh ]; then
       if ! $AF_INIT_DIR/osso-backup-startup.sh check; then
-        wizback_method set_progress_visible false
         wizback_method set_descriptions_visible false
 
         # Need to wrap osso-backup-startup.sh into an 'if',
@@ -113,44 +110,37 @@ start)
           echo -n ''
         fi
 
-        wizback_method set_progress_visible true
         wizback_method set_descriptions_visible true
       fi
     fi
 
-    if [ -x $AF_INIT_DIR/osso-connectivity-ui-gwwizard-startup.sh \
-         -a ! -f /tmp/suw-user-cancelled.tmp ]; then
-
-      wizback_method advance 1
-
-      wizback_method set_progress_visible false
-
-      $AF_INIT_DIR/osso-connectivity-ui-gwwizard-startup.sh start
-
-      wizback_method set_progress_visible true
-    else
-      ADVANCE_STEPS=`expr $ADVANCE_STEPS + 1`
-    fi
-
-    if [ -f $TMPDIR/launch-operator-wizard.tmp \
-         -a ! -f /tmp/suw-user-cancelled.tmp ]; then
-      if [ -x $AF_INIT_DIR/operator-wizard.sh ]; then
+    if test "x$OSSO_PRODUCT_HARDWARE" != "xRX-48"; then
+      if [ -x $AF_INIT_DIR/osso-connectivity-ui-gwwizard-startup.sh \
+           -a ! -f /tmp/suw-user-cancelled.tmp ]; then
 
         wizback_method advance 1
 
-        wizback_method set_progress_visible false
+        $AF_INIT_DIR/osso-connectivity-ui-gwwizard-startup.sh start
 
-        $AF_INIT_DIR/operator-wizard.sh start
-
-        wizback_method set_progress_visible true
+      else
+        ADVANCE_STEPS=`expr $ADVANCE_STEPS + 1`
       fi
-      rm -f $TMPDIR/launch-operator-wizard.tmp
-    else
-      ADVANCE_STEPS=`expr $ADVANCE_STEPS + 1`
+
+      if [ -f $TMPDIR/launch-operator-wizard.tmp \
+           -a ! -f /tmp/suw-user-cancelled.tmp ]; then
+        if [ -x $AF_INIT_DIR/operator-wizard.sh ]; then
+
+          wizback_method advance 1
+
+          $AF_INIT_DIR/operator-wizard.sh start
+        fi
+        rm -f $TMPDIR/launch-operator-wizard.tmp
+      else
+        ADVANCE_STEPS=`expr $ADVANCE_STEPS + 1`
+      fi
     fi
 
     wizback_method advance $ADVANCE_STEPS
-    wizback_method set_progress_visible false
     wizback_method set_descriptions_visible false
     sleep 1
 

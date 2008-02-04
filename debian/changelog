@@ -1,3 +1,11 @@
+osso-af-startup (1.50-1) unstable; urgency=low
+
+  * Added RX-48-specific code. Phone pairing wizard and operator selection wizard
+    only run if the device is not RX-48. Use $OSSO_PRODUCT_HARDWARE.
+  * Remove references to wizback's set_progress_visible
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Mon,  4 Feb 2008 15:32:37 +0200
+
 osso-af-startup (1.49-1~unreleased) unstable; urgency=low
 
   * Fixed the osso-product-info code to handle multiple simultaneous users.
