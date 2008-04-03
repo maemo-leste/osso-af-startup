@@ -1,3 +1,10 @@
+osso-af-startup (1.52-1) unstable; urgency=low
+
+  * Patch from Leonid Moiseichuk
+  * Fixes: NB#83437
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu,  3 Apr 2008 10:59:56 +0300
+
 osso-af-startup (1.51-1) unstable; urgency=low
 
   * Don't call /etc/init.d/osso-ic from af-startup anymore. Call /etc/init.d/icd2 instead
