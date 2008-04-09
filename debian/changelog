@@ -1,3 +1,10 @@
+osso-af-startup (1.53-1) unstable; urgency=low
+
+  * Ensure controlpanel is not running while the device is in charging mode
+    Fixes NB#83038
+
+ -- Karl Lattimer <karl.lattimer@nokia.com>  Wed,  9 Apr 2008 16:01:57 +0300 
+
 osso-af-startup (1.52-1) unstable; urgency=low
 
   * Patch from Leonid Moiseichuk
