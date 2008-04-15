@@ -1,0 +1,17 @@
+#!/bin/sh
+
+TGT=''
+if [ -e /targets/links/scratchbox.config ] ; then
+        . /targets/links/scratchbox.config
+        TGT=$SBOX_TARGET_DIR
+fi
+
+USER=user
+GROUP=users
+HOME="$TGT/home/$USER"
+
+if test "x$1" = "xinstall"; then
+  # walk the user through initial configuration wizards
+  touch $HOME/first-boot-flag
+  chown $USER:$GROUP $HOME/first-boot-flag
+fi

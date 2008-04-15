@@ -45,10 +45,6 @@ fi
 # evil hack to ensure execute permissions
 chmod +x /etc/osso-af-init/get-devlock.sh
 
-# this is needed for optimising boots after first boot
-touch $HOME/first-boot-flag
-chown $USER:$GROUP $HOME/first-boot-flag
-
 # AF environment is included to every shell
 line="source /etc/osso-af-init/af-defines.sh"
 if ! grep -F -q "$line" /etc/profile; then

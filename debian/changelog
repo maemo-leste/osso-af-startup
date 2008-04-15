@@ -1,3 +1,13 @@
+osso-af-startup (1.53-2) unstable; urgency=low
+
+  * Move creation of ~user/first-boot-flag from postinst to new preinst, because
+    preinst gets $1 = install/upgrade depending on whether it's an install or an
+    upgrade. We need this switch, because we must not touch ~user/first-boot-flag
+    if it's an upgrade
+  * Fixes: NB#84040
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Tue, 15 Apr 2008 13:20:53 +0300
+
 osso-af-startup (1.53-1) unstable; urgency=low
 
   * Ensure controlpanel is not running while the device is in charging mode
