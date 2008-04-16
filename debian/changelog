@@ -1,3 +1,9 @@
+osso-af-startup (1.53-3) unstable; urgency=low
+
+  * Create user home directory if it's not there already. /I/ shouldn't have to do that
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 16 Apr 2008 09:19:34 +0300
+
 osso-af-startup (1.53-2) unstable; urgency=low
 
   * Move creation of ~user/first-boot-flag from postinst to new preinst, because

@@ -12,6 +12,13 @@ HOME="$TGT/home/$USER"
 
 if test "x$1" = "xinstall"; then
   # walk the user through initial configuration wizards
+
+  if ! test -d $HOME; then
+    mkdir -p $HOME
+    chmod 750 $HOME
+    chown $USER:$GROUP $HOME
+  fi
+
   touch $HOME/first-boot-flag
   chown $USER:$GROUP $HOME/first-boot-flag
 fi
