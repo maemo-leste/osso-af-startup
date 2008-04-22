@@ -2,7 +2,7 @@
 #
 # This file is part of osso-af-startup.
 #
-# Copyright (C) 2004-2007 Nokia Corporation. All rights reserved.
+# Copyright (C) 2004-2008 Nokia Corporation. All rights reserved.
 #
 # Contact: Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>
 #
@@ -38,8 +38,8 @@ start)
   touch /tmp/im_disable_tools_menu
 
   echo "Running xset770 -- the future of xset!"
-  # disable keyrepeat for select, menu, plus, minus, escape
-  xset770 -r 36 0 -r 70 0 -r 73 0 -r 74 0 -r 9 0 -r 72 0
+  # disable keyrepeat for select, fullscreen, menu, plus, minus, escape
+  xset770 -r Return 0 -r F4 0 -r F6 0 -r F7 0 -r F8 0 -r Escape 0
 
   # block here if device lock is on
   if [ -x /sbin/devlock-blocker ]; then

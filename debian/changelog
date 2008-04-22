@@ -2,6 +2,8 @@ osso-af-startup (1.54-1unreleased) unstable; urgency=low
 
   * Do not create /tmp/.opi.tmp when running inside scratchbox
   * Fixes: NB#77416
+  * Depend on osso-af-utils (>= 1.16-1) because of an xset770 bug fix.
+  * Use symbolic key codes for xset770. Fixes: NB#81350
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Tue, 22 Apr 2008 14:38:23 +0300
 
