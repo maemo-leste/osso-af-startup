@@ -1,4 +1,4 @@
-osso-af-startup (1.54-1) unstable; urgency=low
+osso-af-startup (1.54-1unreleased) unstable; urgency=low
 
   * Do not create /tmp/.opi.tmp when running inside scratchbox
   * Fixes: NB#77416
