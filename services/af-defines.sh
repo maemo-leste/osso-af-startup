@@ -118,21 +118,23 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   source_if_is keyboard.defs
   source_if_is sdl.defs
 
-  if [ ! -e /tmp/.opi.tmp -a -x /usr/bin/osso-product-info ]; then
-    if [ "x$USER" = "xroot" ]; then
-      _SUDO=''
-    else
-      _SUDO='sudo'
+  if [ ! -d /scratchbox ]; then
+    if [ ! -e /tmp/.opi.tmp -a -x /usr/bin/osso-product-info ]; then
+      if [ "x$USER" = "xroot" ]; then
+        _SUDO=''
+      else
+        _SUDO='sudo'
+      fi
+      $_SUDO /usr/bin/osso-product-info 1> /tmp/.opi.tmp.tmp 2> /dev/null
+      $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp 2> /dev/null
+      unset _SUDO
     fi
-    $_SUDO /usr/bin/osso-product-info 1> /tmp/.opi.tmp.tmp 2> /dev/null
-    $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp 2> /dev/null
-    unset _SUDO
-  fi
-  if [ -r /tmp/.opi.tmp ]; then
-    VNAMES=`awk -F '=' '{print $1}' < /tmp/.opi.tmp`
-    source /tmp/.opi.tmp
-    export $VNAMES
-    unset VNAMES
+    if [ -r /tmp/.opi.tmp ]; then
+      VNAMES=`awk -F '=' '{print $1}' < /tmp/.opi.tmp`
+      source /tmp/.opi.tmp
+      export $VNAMES
+      unset VNAMES
+    fi
   fi
 
   export AF_DEFINES_SOURCED=1
