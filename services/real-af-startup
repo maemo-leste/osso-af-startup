@@ -39,7 +39,8 @@ start)
 
   echo "Running xset770 -- the future of xset!"
   # disable keyrepeat for select, fullscreen, menu, plus, minus, escape
-  xset770 -r Return 0 -r F4 0 -r F6 0 -r F7 0 -r F8 0 -r Escape 0
+  # (code 104 is Return for the slide keyboard)
+  xset770 -r Return 0 -r F4 0 -r F6 0 -r F7 0 -r F8 0 -r Escape 0 -r 104 0
 
   # block here if device lock is on
   if [ -x /sbin/devlock-blocker ]; then
