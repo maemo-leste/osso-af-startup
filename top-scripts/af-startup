@@ -39,6 +39,9 @@ start)
 	# happens if we get back to this runlevel without rebooting
 	
 	if [ -e /tmp/first-boot-flag-tmp ]; then
+	  # It is important to make sure all the newly created files have
+	  # reached the storage media before removing first-boot-flag-tmp.
+	  sync
 	  rm -rf /tmp/first-boot-flag-tmp
 	fi
 
