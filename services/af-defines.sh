@@ -25,6 +25,12 @@
 # cancel 'set -e' because grep may return non-zero
 set +e
 
+if [ "x$USER" = "xroot" ]; then
+  _SUDO=''
+else
+  _SUDO='sudo'
+fi
+
 export AF_INIT_DIR=/etc/osso-af-init
 # user name is appended for multi-user Scratchbox
 USER=`whoami`
@@ -38,6 +44,25 @@ fi
 
 # these could have changed since last sourcing
 source $AF_INIT_DIR/locale
+
+if [ -e $HOME/first-boot-flag ]; then
+  OSSO_PRODUCT_HARDWARE=`$_SUDO /usr/bin/osso-product-info -q OSSO_PRODUCT_HARDWARE`
+  if [ "x$OSSO_PRODUCT_HARDWARE" = "xRX-48" ]; then
+    # Recreate $AF_INIT_DIR/locale with en_US
+    cp -f $AF_INIT_DIR/locale /tmp
+
+    echo -n '' > /tmp/locale
+    echo 'unset LC_ALL' >> /tmp/locale
+    echo 'unset LANGUAGE' >> /tmp/locale
+    echo 'export LANG=en_US' >> /tmp/locale
+    echo 'export LC_MESSAGES=en_US' >> /tmp/locale
+
+    mv -f /tmp/locale $AF_INIT_DIR/locale
+
+    source $AF_INIT_DIR/locale
+  fi
+fi
+
 if [ -r $SESSION_BUS_ADDRESS_FILE ]; then
   source $SESSION_BUS_ADDRESS_FILE
 fi
@@ -120,11 +145,6 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
 
   if [ ! -d /scratchbox ]; then
     if [ ! -e /tmp/.opi.tmp -a -x /usr/bin/osso-product-info ]; then
-      if [ "x$USER" = "xroot" ]; then
-        _SUDO=''
-      else
-        _SUDO='sudo'
-      fi
       $_SUDO /usr/bin/osso-product-info 1> /tmp/.opi.tmp.tmp 2> /dev/null
       $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp 2> /dev/null
       unset _SUDO
