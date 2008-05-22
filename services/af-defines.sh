@@ -57,7 +57,7 @@ if [ -e $HOME/first-boot-flag ]; then
     echo 'export LANG=en_US' >> /tmp/locale
     echo 'export LC_MESSAGES=en_US' >> /tmp/locale
 
-    mv -f /tmp/locale $AF_INIT_DIR/locale
+    cd $AF_INIT_DIR && $_SUDO mv -f /tmp/locale .
 
     source $AF_INIT_DIR/locale
   fi

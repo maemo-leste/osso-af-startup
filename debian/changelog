@@ -1,3 +1,9 @@
+osso-af-startup (1.56-1) unstable; urgency=low
+
+  * Add the mv -f command line to sudoers so as to avoid permission denials
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 21 May 2008 15:58:44 +0300
+
 osso-af-startup (1.55-1) unstable; urgency=low
 
   * Set default language to en_US on RX-48

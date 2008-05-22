@@ -6,4 +6,4 @@ user ALL = NOPASSWD: /etc/init.d/osso-hss start
 user ALL = NOPASSWD: /etc/init.d/osso-hss stop
 user ALL = NOPASSWD: /usr/bin/osso-product-info
 user ALL = NOPASSWD: /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp
-
+user ALL = NOPASSWD: /bin/mv -f /tmp/locale .
