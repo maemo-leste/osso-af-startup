@@ -60,6 +60,11 @@ if [ -e $HOME/first-boot-flag ]; then
     cd $AF_INIT_DIR && $_SUDO mv -f /tmp/locale .
 
     source $AF_INIT_DIR/locale
+
+    # ... and inform input methods of the change
+    if test -x /usr/bin/gconftool-2; then
+      /usr/bin/gconftool-2 --set --type string /apps/osso/inputmethod/hildon-im-languages/language-0 'en_US'
+    fi
   fi
 fi
 

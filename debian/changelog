@@ -1,3 +1,10 @@
+osso-af-startup (1.57-1) unstable; urgency=low
+
+  * Incomplete hack: When making /etc/osso-af-init/locale en_US, also set gconf key
+  * Fixes: NB#85821
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Tue, 27 May 2008 12:28:01 +0300
+
 osso-af-startup (1.56-1) unstable; urgency=low
 
   * Add the mv -f command line to sudoers so as to avoid permission denials
