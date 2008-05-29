@@ -1,5 +1,12 @@
 osso-af-startup (1.57-1) unstable; urgency=low
 
+  * Revert Fixes for bugs 85821 and 85539 (will go to version 1.54-1), patch will go to 
+    osso-startup-wizard
+
+ -- Natalia Dobrovolskaya <natalia.dobrovolskaya@nokia.com>  Thu, 29 May 2009 16:11:00 +0300
+
+osso-af-startup (1.57-1) unstable; urgency=low
+
   * Incomplete hack: When making /etc/osso-af-init/locale en_US, also set gconf key
   * Fixes: NB#85821
 
