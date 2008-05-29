@@ -1,4 +1,4 @@
-osso-af-startup (1.57-1) unstable; urgency=low
+osso-af-startup (1.58-1) unstable; urgency=low
 
   * Revert Fixes for bugs 85821 and 85539 (will go to version 1.54-1), patch will go to 
     osso-startup-wizard
