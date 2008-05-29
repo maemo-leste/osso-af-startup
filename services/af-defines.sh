@@ -38,8 +38,6 @@ fi
 
 # these could have changed since last sourcing
 source $AF_INIT_DIR/locale
-
-
 if [ -r $SESSION_BUS_ADDRESS_FILE ]; then
   source $SESSION_BUS_ADDRESS_FILE
 fi
