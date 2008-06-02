@@ -1,3 +1,9 @@
+osso-af-startup (1.59-1) unstable; urgency=low
+
+  * Applied Kuisma's patch (for osso-af-startup.sudoers)
+
+ -- Natalia Dobrovolskaya <natalia.dobrovolskaya@nokia.com>  Mon,  2 Jun 2009 12:17:00 +0300
+
 osso-af-startup (1.58-1) unstable; urgency=low
 
   * Revert Fixes for bugs 85821 and 85539 (will go to version 1.54-1), patch will go to 
