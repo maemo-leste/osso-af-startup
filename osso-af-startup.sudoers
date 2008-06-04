@@ -1,4 +1,3 @@
-
 user ALL = NOPASSWD: /etc/init.d/ke-recv start
 user ALL = NOPASSWD: /etc/init.d/ke-recv stop
 user ALL = NOPASSWD: /etc/init.d/alarmd start
