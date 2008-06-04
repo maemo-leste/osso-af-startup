@@ -1,3 +1,9 @@
+osso-af-startup (1.60-1) unstable; urgency=low
+
+  * Complete reversion back to version 1.54-1
+
+ -- Gabriel Schulhof <natalia.dobrovolskaya@nokia.com>  Wed,  4 Jun 2008 09:44:01 +0300
+
 osso-af-startup (1.59-1) unstable; urgency=low
 
   * Applied Kuisma's patch (for osso-af-startup.sudoers)
