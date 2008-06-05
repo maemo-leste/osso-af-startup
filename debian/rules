@@ -89,6 +89,13 @@ binary-arch: build install
 #	dh_python
 #	dh_makeshlibs
 	dh_installdeb
+
+	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx34+rx44/etc/osso-af-init/
+	cp -a $(CURDIR)/locale.rx34+rx44 $(CURDIR)/debian/osso-af-startup-locale-rx34+rx44/etc/osso-af-init/locale
+
+	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx48/etc/osso-af-init
+	cp -a $(CURDIR)/locale.rx48 $(CURDIR)/debian/osso-af-startup-locale-rx48/etc/osso-af-init/locale
+
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums

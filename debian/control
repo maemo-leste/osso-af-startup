@@ -16,10 +16,10 @@ Description: Application framework top startup scripts
 
 Package: osso-af-startup-locale-rx34+rx44
 Architecture: all
-Depends: osso-af-startup (== ${Source-Version})
+Depends: osso-af-startup (>= ${Source-Version})
 Description: Default language file
 
 Package: osso-af-startup-locale-rx48
 Architecture: all
-Depends: osso-af-startup (== ${Source-Version})
+Depends: osso-af-startup (>= ${Source-Version})
 Description: Default language file
