@@ -1,3 +1,11 @@
+osso-af-startup (1.63-1) unstable; urgency=low
+
+  * Distribute locale.orig via /usr/share/osso-af-init. Works together with a change to
+    osso-app-killer-common.sh, whereby /etc/osso-af-init/locale is restored from the
+    locale.orig stored in this new place
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Mon, 16 Jun 2008 16:13:56 +0300
+
 osso-af-startup (1.62-1) unstable; urgency=low
 
   * Don't copy /etc/osso-af-init/locale to /etc/osso-af-init/locale.orig out of postinst,
