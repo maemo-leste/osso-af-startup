@@ -93,6 +93,9 @@ binary-arch: build install
 	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init
 	cp -a $(CURDIR)/locale.rx48 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init/locale
 
+	mkdir -p $(CURDIR)/debian/osso-af-startup-locale/etc/osso-af-init
+	cp -a $(CURDIR)/debian/osso-af-startup/etc/osso-af-init/locale $(CURDIR)/debian/osso-af-startup/etc/osso-af-init/locale.orig
+
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums

@@ -16,9 +16,9 @@ ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 # startup wizard needs to be able to modify the locale
 chown $USER:$GROUP /etc/osso-af-init/locale
 
-# save the original for Restore Original Settings
-cp -f /etc/osso-af-init/locale /etc/osso-af-init/locale.orig
-chown $USER:$GROUP /etc/osso-af-init/locale.orig
+# # save the original for Restore Original Settings
+# cp -f /etc/osso-af-init/locale /etc/osso-af-init/locale.orig
+# chown $USER:$GROUP /etc/osso-af-init/locale.orig
 
 update-rc.d af-services start 22 2 3 4 5 . stop 22 0 1 6 . > /dev/null
 update-rc.d af-startup start 50 2 3 4 . stop 21 0 1 6 . > /dev/null
