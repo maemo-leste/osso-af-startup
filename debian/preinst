@@ -1,5 +1,21 @@
 #!/bin/sh
 
+cat_default_locale_file() # No args
+{
+cat <<'EOF'
+#!/bin/sh
+
+if [ -f /usr/share/osso-af-init/locale ]; then
+  source /usr/share/osso-af-init/locale
+else
+  unset LC_ALL
+  unset LANGUAGE
+  export LANG=en_GB
+  export LC_MESSAGES=en_GB
+fi
+EOF
+}
+
 TGT=''
 if [ -e /targets/links/scratchbox.config ] ; then
         . /targets/links/scratchbox.config
@@ -9,6 +25,7 @@ fi
 USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
+LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
 
 if test "x$1" = "xinstall"; then
   # walk the user through initial configuration wizards
@@ -21,4 +38,10 @@ if test "x$1" = "xinstall"; then
 
   touch $HOME/first-boot-flag
   chown $USER:$GROUP $HOME/first-boot-flag
+fi
+
+if test -f /etc/osso-af-init/locale; then
+  cp -af /etc/osso-af-init/locale $LOCALE_TMP_FILE
+else
+  cat_default_locale_file > $LOCALE_TMP_FILE
 fi

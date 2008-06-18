@@ -1,3 +1,10 @@
+osso-af-startup (1.64-1) unstable; urgency=low
+
+  * Maintain /etc/osso-af-init/locale solely via pre/postinst and do not ship it at all.
+    If a version of locale is present on the system, don't touch it.
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 18 Jun 2008 13:32:51 +0300
+
 osso-af-startup (1.63-2) unstable; urgency=low
 
   * Failed to build. Oops!

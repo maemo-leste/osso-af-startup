@@ -9,9 +9,18 @@ fi
 USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
+LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
 
 rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
+
+if test -f $LOCALE_TMP_FILE; then
+  if ! test -f /usr/share/osso-af-init/locale.orig
+    cp -f $LOCALE_TMP_FILE /usr/share/osso-af-init/locale.orig
+  fi
+
+  mv -f $LOCALE_TMP_FILE /etc/osso-af-init/locale
+fi
 
 # startup wizard needs to be able to modify the locale
 chown $USER:$GROUP /etc/osso-af-init/locale
