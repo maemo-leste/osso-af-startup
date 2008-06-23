@@ -15,7 +15,7 @@ rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 
 if test -f $LOCALE_TMP_FILE; then
-  if ! test -f /usr/share/osso-af-init/locale.orig
+  if ! test -f /usr/share/osso-af-init/locale.orig; then
     cp -f $LOCALE_TMP_FILE /usr/share/osso-af-init/locale.orig
   fi
 
