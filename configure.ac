@@ -1,5 +1,5 @@
 AC_INIT(Makefile.am)
-AM_INIT_AUTOMAKE(osso-af-startup, 1.63)
+AM_INIT_AUTOMAKE(osso-af-startup, 1.65)
 
 AC_OUTPUT(Makefile \
 	services/Makefile \
