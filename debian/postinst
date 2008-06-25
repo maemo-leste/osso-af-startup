@@ -10,15 +10,23 @@ USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
 LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
+LOCALE_FILE=/etc/osso-af-init/locale
+LOCALE_ORIG_FILE=/usr/share/osso-af-init/locale.orig
+LOCALE_ORIG_FILE_OLD=/etc/osso-af-init/locale.orig
 
 rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 
 if test -f $LOCALE_TMP_FILE; then
-  mv -f $LOCALE_TMP_FILE /etc/osso-af-init/locale
+  mv -f $LOCALE_TMP_FILE $LOCALE_FILE
 
-  if ! test -f /usr/share/osso-af-init/locale.orig; then
-    cp -f $LOCALE_TMP_FILE /usr/share/osso-af-init/locale.orig
+  # What to do if a locale.orig file is not present
+  if ! test -f $LOCALE_ORIG_FILE; then
+    if test -f $LOCALE_ORIG_FILE_OLD; then
+      cp -f $LOCALE_ORIG_FILE_OLD $LOCALE_ORIG_FILE
+    else
+      cp -f $LOCALE_FILE $LOCALE_ORIG_FILE
+    fi
   fi
 fi
 

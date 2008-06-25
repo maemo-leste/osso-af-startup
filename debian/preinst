@@ -26,6 +26,7 @@ USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
 LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
+LOCALE_FILE=/etc/osso-af-init/locale
 
 if test "x$1" = "xinstall"; then
   # walk the user through initial configuration wizards
@@ -40,8 +41,8 @@ if test "x$1" = "xinstall"; then
   chown $USER:$GROUP $HOME/first-boot-flag
 fi
 
-if test -f /etc/osso-af-init/locale; then
-  cp -af /etc/osso-af-init/locale $LOCALE_TMP_FILE
+if test -f $LOCALE_FILE; then
+  cp -af $LOCALE_FILE $LOCALE_TMP_FILE
 else
   cat_default_locale_file > $LOCALE_TMP_FILE
 fi
