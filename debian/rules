@@ -90,7 +90,7 @@ binary-arch: build install
 #	dh_makeshlibs
 	dh_installdeb
 
-	mkdir -p $(CURDIR)/debian/osso-af-startup/usr/share/osso-af-init
+#	mkdir -p $(CURDIR)/debian/osso-af-startup/usr/share/osso-af-init
 
 	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init
 	cp -a $(CURDIR)/locale.rx48 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init/locale

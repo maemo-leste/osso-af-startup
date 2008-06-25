@@ -26,8 +26,9 @@ USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
 LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
+LOCALE_DIR=/usr/share/osso-af-init
 LOCALE_FILE=/etc/osso-af-init/locale
-LOCALE_ORIG_FILE=/usr/share/osso-af-init/locale.orig
+LOCALE_ORIG_FILE=$LOCALE_DIR/locale.orig
 
 if test "x$1" = "xinstall"; then
   # walk the user through initial configuration wizards
@@ -48,4 +49,5 @@ else
   cat_default_locale_file > $LOCALE_TMP_FILE
 fi
 
+mkdir -p $LOCALE_DIR
 cat_default_locale_file > $LOCALE_ORIG_FILE
