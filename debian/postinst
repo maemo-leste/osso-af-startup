@@ -19,15 +19,6 @@ ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 
 if test -f $LOCALE_TMP_FILE; then
   mv -f $LOCALE_TMP_FILE $LOCALE_FILE
-
-  # What to do if a locale.orig file is not present
-  if ! test -f $LOCALE_ORIG_FILE; then
-    if test -f $LOCALE_ORIG_FILE_OLD; then
-      cp -f $LOCALE_ORIG_FILE_OLD $LOCALE_ORIG_FILE
-    else
-      cp -f $LOCALE_FILE $LOCALE_ORIG_FILE
-    fi
-  fi
 fi
 
 # startup wizard needs to be able to modify the locale
