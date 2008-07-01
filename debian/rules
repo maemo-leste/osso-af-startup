@@ -83,19 +83,15 @@ binary-arch: build install
 	dh_link
 	dh_strip
 	dh_compress
-	dh_fixperms
 #	dh_perl
 #	dh_python
 #	dh_makeshlibs
 	dh_installdeb
 
-#	mkdir -p $(CURDIR)/debian/osso-af-startup/usr/share/osso-af-init
-
 	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init
-	chmod 755 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init
 	cp -a $(CURDIR)/locale.rx48 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init/locale
-	chmod 644 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init/locale
 
+	dh_fixperms
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
