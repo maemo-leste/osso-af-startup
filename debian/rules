@@ -24,7 +24,6 @@ configure: configure-stamp
 configure-stamp:
 	dh_testdir
 	# Remove all the 775 and 664 permissions. I dunno why they exist O_o
-	for Nix in `find $(CURDIR) | grep -v '\.svn' | grep -v '^\.$$'`; do if ls -ld $$Nix | awk '{print $$1;}' | grep -q x; then chmod 755 $$Nix ; else chmod 644 $$Nix ; fi ; done
 	touch configure-stamp
 
 
