@@ -86,11 +86,11 @@ binary-arch: build install
 	dh_link
 	dh_strip
 	dh_compress
+	dh_fixperms
 #	dh_perl
 #	dh_python
 #	dh_makeshlibs
 	dh_installdeb
-	dh_fixperms
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
