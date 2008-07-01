@@ -1,6 +1,7 @@
 osso-af-startup (1.66-1) unstable; urgency=low
 
   * Don't start icd2 from af-startup anymore
+  * Fixes: NB#85761
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Tue,  1 Jul 2008 16:39:19 +0300
 
