@@ -23,7 +23,8 @@ endif
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	# Remove all the 775 and 664 permissions. I dunno why they exist O_o
+	# Add here commands to configure the package.
+
 	touch configure-stamp
 
 
