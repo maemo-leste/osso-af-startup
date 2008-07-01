@@ -23,8 +23,8 @@ endif
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	# Add here commands to configure the package.
-
+	# Remove all the 775 and 664 permissions. I dunno why they exist O_o
+	for Nix in `find $(CURDIR) | grep -v '\.svn' | grep -v '^\.$$'`; do if ls -ld $$Nix | awk '{print $$1;}' | grep -q x; then chmod 755 $$Nix ; else chmod 644 $$Nix ; fi ; done
 	touch configure-stamp
 
 
@@ -84,7 +84,7 @@ binary-arch: build install
 	dh_link
 	dh_strip
 	dh_compress
-	dh_fixperms
+#	dh_fixperms
 #	dh_perl
 #	dh_python
 #	dh_makeshlibs
