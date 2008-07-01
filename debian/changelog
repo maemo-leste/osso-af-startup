@@ -1,3 +1,9 @@
+osso-af-startup (1.65-2) unstable; urgency=low
+
+  * Fixed permissions
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Tue,  1 Jul 2008 16:25:40 +0300
+
 osso-af-startup (1.65-1) unstable; urgency=low
 
   * Create locale.orig
