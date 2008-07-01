@@ -50,7 +50,6 @@ start)
 	  /etc/init.d/btcond start
 	  /etc/init.d/bluez-utils start
 	  /etc/init.d/wlancond start
-	  /etc/init.d/icd2 start
 	  touch /tmp/first-boot-flag-tmp
 	fi
 
