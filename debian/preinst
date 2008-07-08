@@ -25,7 +25,7 @@ fi
 USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
-LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
+LOCALE_TMP_FILE=/var/tmp/osso-af-init.locale.tmp
 LOCALE_DIR=/usr/share/osso-af-init
 LOCALE_FILE=/etc/osso-af-init/locale
 LOCALE_ORIG_FILE=$LOCALE_DIR/locale.orig

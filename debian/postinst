@@ -9,7 +9,7 @@ fi
 USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
-LOCALE_TMP_FILE=/tmp/osso-af-init.locale.tmp
+LOCALE_TMP_FILE=/var/tmp/osso-af-init.locale.tmp
 LOCALE_FILE=/etc/osso-af-init/locale
 LOCALE_ORIG_FILE=/usr/share/osso-af-init/locale.orig
 LOCALE_ORIG_FILE_OLD=/etc/osso-af-init/locale.orig
