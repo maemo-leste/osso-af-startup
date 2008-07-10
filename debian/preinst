@@ -25,7 +25,8 @@ fi
 USER=user
 GROUP=users
 HOME="$TGT/home/$USER"
-LOCALE_TMP_FILE=/var/tmp/osso-af-init.locale.tmp
+TMP_DIR=/var/tmp
+LOCALE_TMP_FILE=$TMP_DIR/osso-af-init.locale.tmp
 LOCALE_DIR=/usr/share/osso-af-init
 LOCALE_FILE=/etc/osso-af-init/locale
 LOCALE_ORIG_FILE=$LOCALE_DIR/locale.orig
@@ -42,6 +43,9 @@ if test "x$1" = "xinstall"; then
   touch $HOME/first-boot-flag
   chown $USER:$GROUP $HOME/first-boot-flag
 fi
+
+mkdir -p $TMP_DIR
+chmod 1777 $TMP_DIR
 
 if test -f $LOCALE_FILE; then
   echo "osso-af-startup: preinst: Backing up existing locale file to $LOCALE_TMP_FILE"

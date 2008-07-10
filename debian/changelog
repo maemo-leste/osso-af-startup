@@ -1,3 +1,10 @@
+osso-af-startup (1.66-4) unstable; urgency=low
+
+  * mkdir -p the f0rking /var/tmp directory, because, /apparently/, it doesn't
+    exist. Halleluja!
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu, 10 Jul 2008 14:20:53 +0300
+
 osso-af-startup (1.66-3) unstable; urgency=low
 
   * Added lots of debugging echo lines around the manipulation of the locale file
