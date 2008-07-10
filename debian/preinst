@@ -44,10 +44,14 @@ if test "x$1" = "xinstall"; then
 fi
 
 if test -f $LOCALE_FILE; then
+  echo "osso-af-startup: preinst: Backing up existing locale file to $LOCALE_TMP_FILE"
   cp -af $LOCALE_FILE $LOCALE_TMP_FILE
 else
+  echo "osso-af-startup: preinst: Creating default locale file in $LOCALE_TMP_FILE"
   cat_default_locale_file > $LOCALE_TMP_FILE
 fi
 
+echo "osso-af-startup: preinst: Creating directory $LOCALE_DIR"
 mkdir -p $LOCALE_DIR
+echo "osso-af-startup: preinst: Generating default locale-orig file $LOCALE_ORIG_FILE"
 cat_default_locale_file > $LOCALE_ORIG_FILE
