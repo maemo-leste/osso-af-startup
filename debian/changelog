@@ -1,3 +1,9 @@
+osso-af-startup (1.67-1) unstable; urgency=low
+
+  * dsmetool workaround: replace '-r' with '-t'
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Tue, 29 Jul 2008 17:21:02 +0300
+
 osso-af-startup (1.66-4) unstable; urgency=low
 
   * mkdir -p the f0rking /var/tmp directory, because, /apparently/, it doesn't
