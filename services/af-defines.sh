@@ -50,6 +50,8 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   if [ ! -d $AF_PIDDIR ]; then
     # note, no write to flash involved here
     mkdir $AF_PIDDIR
+    # I'm not the only one writing here
+    chmod 777 $AF_PIDDIR
   fi
 
   if [ ! -e /targets/links/scratchbox.config ]; then
