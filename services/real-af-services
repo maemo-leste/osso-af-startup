@@ -43,7 +43,6 @@ start)
   fi
 
   source $AF_INIT_DIR/sapwood-server.sh start
-  source $AF_INIT_DIR/matchbox.sh start
 
   # wait until system D-BUS is ready (some stuff started by init
   # after us assume it is running)
@@ -72,9 +71,6 @@ stop)
   if [ -x $AF_INIT_DIR/osso-media-server.sh ]; then
     source $AF_INIT_DIR/osso-media-server.sh stop
     unset LD_PRELOAD
-  fi
-  if [ -f $AF_INIT_DIR/matchbox.sh ]; then
-    source $AF_INIT_DIR/matchbox.sh stop
   fi
   source $AF_INIT_DIR/sapwood-server.sh stop
 

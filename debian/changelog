@@ -1,6 +1,13 @@
+osso-af-startup (1.69-1) unstable; urgency=low
+
+  * Removed references to matchbox.sh
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu,  4 Sep 2008 14:41:19 +0300
+
 osso-af-startup (1.68-1) unstable; urgency=low
 
   * chmod 777 /tmp/af-piddir from af-defines.sh, just like from fb-progress.sh
+  * Fixes: NB#85765
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 30 Jul 2008 14:15:05 +0300
 

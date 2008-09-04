@@ -116,7 +116,6 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   }
 
   source_if_is osso-gtk.defs
-  source_if_is matchbox.defs
   source_if_is keyboard.defs
   source_if_is sdl.defs
 
