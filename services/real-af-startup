@@ -55,6 +55,10 @@ start)
   fi
   source $SESSION_BUS_ADDRESS_FILE
 
+  if test -f $AF_INIT_DIR/tracker.sh; then
+    source $AF_INIT_DIR/tracker.sh start
+  fi
+
   if [ -x /etc/osso-af-init/maemo-launcher ]; then
     /etc/osso-af-init/maemo-launcher start
   fi
@@ -183,6 +187,10 @@ stop)
 
   if [ -x $AF_INIT_DIR/osso-media-server.sh ]; then
     $AF_INIT_DIR/osso-media-server.sh stop
+  fi
+
+  if test -f $AF_INIT_DIR/tracker.sh; then
+    source $AF_INIT_DIR/tracker.sh stop
   fi
 
   ;;
