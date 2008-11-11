@@ -33,6 +33,9 @@ fi
 
 case "$1" in
 start)
+  if [ -e $HOME/first-boot-flag ]; then
+    touch /tmp/first-boot-flag-tmp
+  fi
 
   # this is used by the input methods for disabling features in startup
   touch /tmp/im_disable_tools_menu
@@ -157,6 +160,7 @@ start)
     # the storage media before removing first-boot-flag.
     sync
     rm -f $HOME/first-boot-flag
+    rm -f /tmp/first-boot-flag-tmp
     rm -f /tmp/suw-user-cancelled.tmp
     touch /tmp/.check_auto_install
 
