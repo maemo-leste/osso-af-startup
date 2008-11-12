@@ -1,8 +1,13 @@
+osso-af-startup (1.72-1) unstable; urgency=low
+
+  * Don't unconditionally source /etc/osso-af-init/keyboard.sh
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 12 Nov 2008 13:10:26 +0200
+
 osso-af-startup (1.71-1) unstable; urgency=low
 
   * Added init script to save clock state to hw: top-scripts/hwclock
   * Moving creation/destruction of /tmp/first-boot-flag-tmp to real-af-startup
-  * Don't unconditionally source /etc/osso-af-init/keyboard.sh
   * Fixes: NB#90795
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed,  8 Oct 2008 14:22:55 +0300
