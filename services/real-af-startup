@@ -75,7 +75,9 @@ start)
     source $AF_INIT_DIR/keyboard.defs
   fi
 
-  source $AF_INIT_DIR/keyboard.sh start
+  if [ -f $AF_INIT_DIR/keyboard.sh ]; then
+    source $AF_INIT_DIR/keyboard.sh start
+  fi
 
   # start clipboard daemon 
   if [ -f $AF_INIT_DIR/clipboard.sh ]; then
