@@ -20,9 +20,7 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA
 
-if [ -f /etc/osso-af-init/wizard-background-defs.sh ]; then
-  source /etc/osso-af-init/wizard-background-defs.sh
-fi
+source_if_is wizard-background-defs.sh
 
 if ! type wizback_method 2> /dev/null; then
   wizback_method() # args ignored
@@ -58,38 +56,25 @@ start)
   fi
   source $SESSION_BUS_ADDRESS_FILE
 
-  if test -f $AF_INIT_DIR/tracker.sh; then
-    source $AF_INIT_DIR/tracker.sh start
-  fi
+  source_if_is tracker.sh start
 
   if [ -x /etc/osso-af-init/maemo-launcher ]; then
     /etc/osso-af-init/maemo-launcher start
   fi
 
-  if [ -x $AF_INIT_DIR/startup-greeting.sh ]; then
-    source $AF_INIT_DIR/startup-greeting.sh start
-  fi
+  source_if_is startup-greeting.sh start
 
-  # we need to start VKB 
-  if [ -f $AF_INIT_DIR/keyboard.defs ]; then
-    source $AF_INIT_DIR/keyboard.defs
-  fi
-
-  if [ -f $AF_INIT_DIR/keyboard.sh ]; then
-    source $AF_INIT_DIR/keyboard.sh start
-  fi
+  # we need to start VKB
+  source_if_is keyboard.defs
+  source_if_is keyboard.sh start
 
   # start clipboard daemon 
-  if [ -f $AF_INIT_DIR/clipboard.sh ]; then
-    source $AF_INIT_DIR/clipboard.sh start
-  fi
+  source_if_is clipboard.sh start
 
   if [ -e $HOME/first-boot-flag ]; then
     ADVANCE_STEPS=1
 
-    if [ -x $AF_INIT_DIR/wizard-background.sh ]; then
-      source $AF_INIT_DIR/wizard-background.sh start
-    fi
+    source_if_is wizard-background.sh start
 
     if [ -x $AF_INIT_DIR/startup-wizard.sh ]; then
       wizback_method advance 1
@@ -166,16 +151,12 @@ start)
     rm -f /tmp/suw-user-cancelled.tmp
     touch /tmp/.check_auto_install
 
-    if [ -x $AF_INIT_DIR/startup-greeting.sh ]; then
-      source $AF_INIT_DIR/startup-greeting.sh firstboot
-    fi
+    source_if_is startup-greeting.sh firstboot
 
     wizback_method quit
 
   else
-    if [ -x $AF_INIT_DIR/startup-wizard.sh ]; then
-      source $AF_INIT_DIR/startup-wizard.sh start
-    fi
+    source_if_is startup-wizard.sh start
 
     # Give Backup a chance to finish restoring task
     if [ -f $HOME/.osso-backup/last-restore.xml ]; then
@@ -195,9 +176,7 @@ stop)
     $AF_INIT_DIR/osso-media-server.sh stop
   fi
 
-  if test -f $AF_INIT_DIR/tracker.sh; then
-    source $AF_INIT_DIR/tracker.sh stop
-  fi
+  source_if_is tracker.sh stop
 
   ;;
 restart)

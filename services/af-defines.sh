@@ -26,6 +26,20 @@
 set +e
 
 export AF_INIT_DIR=/etc/osso-af-init
+
+source_if_is()
+{
+  farg=$AF_INIT_DIR/$1 
+
+  shift
+
+  if [ -f $farg ]; then
+    source $farg $@
+  else
+    echo "AF Warning: '$farg' not found"
+  fi
+}
+
 # user name is appended for multi-user Scratchbox
 USER=`whoami`
 if [ "x$USER" = "xroot" ]; then
@@ -105,17 +119,8 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   # MMC swap file location (directory)
   export MMC_SWAP_LOCATION=$MMC_MOUNTPOINT
 
-  source_if_is()
-  {
-    farg=$AF_INIT_DIR/$1 
-    if [ -f $farg ]; then
-      source $farg
-    else
-      echo "AF Warning: '$farg' not found"
-    fi
-  }
-
   source_if_is osso-gtk.defs
+  source_if_is matchbox.defs
   source_if_is keyboard.defs
   source_if_is sdl.defs
 
