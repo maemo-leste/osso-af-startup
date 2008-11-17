@@ -1,6 +1,7 @@
 osso-af-startup (1.72-1) unstable; urgency=low
 
   * Don't unconditionally source /etc/osso-af-init/keyboard.sh
+  * Fix SI errors (hwclock::(restart|force-reload)), postrm::update-rc.d remove hwclock
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 12 Nov 2008 13:10:26 +0200
 

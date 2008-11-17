@@ -14,31 +14,47 @@
 # Debian init.d script for hwclock
 # Copyright Nokia Corporation 2008
 
+start()
+{
+  if test -x "/sbin/hwclock"; then
+    echo -n 'Synching hardware clock to system time ... '
+    /sbin/hwclock -s
+    if test "x$?" = "x0"; then
+      echo "OK"
+    else
+      echo "FAILED"
+    fi
+  fi
+}
+
+stop()
+{
+  if test -x "/sbin/hwclock"; then
+    echo -n 'Synching system time to hardware clock ... '
+    /sbin/hwclock -w
+    if test "x$?" = "x0"; then
+      echo "OK"
+    else
+      echo "FAILED"
+    fi
+  fi
+}
+
 case "$1" in
   start)
-    if test -x "/sbin/hwclock"; then
-      echo -n 'Synching hardware clock to system time ... '
-      /sbin/hwclock -s
-      if test "x$?" = "x0"; then
-        echo "OK"
-      else
-        echo "FAILED"
-      fi
-    fi
+    start
+  ;;
+  restart)
+  stop
+  start
+  ;;
+  force-reload)
   ;;
   stop)
-    if test -x "/sbin/hwclock"; then
-      echo -n 'Synching system time to hardware clock ... '
-      /sbin/hwclock -w
-      if test "x$?" = "x0"; then
-        echo "OK"
-      else
-        echo "FAILED"
-      fi
-    fi
+    stop
   ;;
   *)
-    echo "Usage: /etc/init.d/$NAME {start|stop}" >&2
+    echo "Usage: /etc/init.d/$NAME {start|stop|restart}" >&2
     exit 2
   ;;
 esac
