@@ -147,7 +147,6 @@ start)
     # the storage media before removing first-boot-flag.
     sync
     rm -f $HOME/first-boot-flag
-    rm -f /tmp/first-boot-flag-tmp
     rm -f /tmp/suw-user-cancelled.tmp
     touch /tmp/.check_auto_install
 
