@@ -1,3 +1,11 @@
+osso-af-startup (1.74-1) unstable; urgency=low
+
+  * Improved decision as to whether to define INTERNAL_MMC_MOUNTPOINT to be based
+    on the value of OSSO_PRODUCT_HARDWARE
+  * Fixes: NB#90854
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Fri, 28 Nov 2008 13:09:44 +0200
+
 osso-af-startup (1.73-1) unstable; urgency=low
 
   * Move destruction of /tmp/first-boot-flag-tmp to new /etc/init.d/zzzremove-first-boot-flag

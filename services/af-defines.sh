@@ -97,10 +97,34 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   # The MyDocs directory
   export MYDOCSDIR=$HOME/MyDocs
 
+  if [ ! -d /scratchbox ]; then
+    if [ ! -e /tmp/.opi.tmp -a -x /usr/bin/osso-product-info ]; then
+      if [ "x$USER" = "xroot" ]; then
+        _SUDO=''
+      else
+        _SUDO='sudo'
+      fi
+      $_SUDO /usr/bin/osso-product-info 1> /tmp/.opi.tmp.tmp 2> /dev/null
+      $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp 2> /dev/null
+      unset _SUDO
+    fi
+    if [ -r /tmp/.opi.tmp ]; then
+      VNAMES=`awk -F '=' '{print $1}' < /tmp/.opi.tmp`
+      source /tmp/.opi.tmp
+      export $VNAMES
+      unset VNAMES
+    fi
+  fi
+
   # Mount point of the MMC
   export MMC_MOUNTPOINT='/media/mmc1' MMC_DEVICE_FILE='/dev/mmcblk0p1'
-  echo `uname -m` | grep "armv6l" > /dev/null
-  if [ $? = 0 ]; then
+
+  # Only the following hardware types have internal MMCs
+  if test "x$OSSO_PRODUCT_HARDWARE" = "xRX-34" || \
+     test "x$OSSO_PRODUCT_HARDWARE" = "xRX-44" || \
+     test "x$OSSO_PRODUCT_HARDWARE" = "xRX-48" || \
+     test "x$OSSO_PRODUCT_HARDWARE" = "xRX-51"; then
+
     export INTERNAL_MMC_MOUNTPOINT='/media/mmc2'
     export INTERNAL_MMC_SWAP_LOCATION=$INTERNAL_MMC_MOUNTPOINT
     export OSSO_SWAP=$INTERNAL_MMC_MOUNTPOINT
@@ -123,25 +147,6 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   source_if_is matchbox.defs
   source_if_is keyboard.defs
   source_if_is sdl.defs
-
-  if [ ! -d /scratchbox ]; then
-    if [ ! -e /tmp/.opi.tmp -a -x /usr/bin/osso-product-info ]; then
-      if [ "x$USER" = "xroot" ]; then
-        _SUDO=''
-      else
-        _SUDO='sudo'
-      fi
-      $_SUDO /usr/bin/osso-product-info 1> /tmp/.opi.tmp.tmp 2> /dev/null
-      $_SUDO /bin/mv -f /tmp/.opi.tmp.tmp /tmp/.opi.tmp 2> /dev/null
-      unset _SUDO
-    fi
-    if [ -r /tmp/.opi.tmp ]; then
-      VNAMES=`awk -F '=' '{print $1}' < /tmp/.opi.tmp`
-      source /tmp/.opi.tmp
-      export $VNAMES
-      unset VNAMES
-    fi
-  fi
 
   export AF_DEFINES_SOURCED=1
 
