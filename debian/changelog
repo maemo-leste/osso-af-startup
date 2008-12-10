@@ -1,3 +1,9 @@
+osso-af-startup (1.75-1) unstable; urgency=low
+
+  * 32768 max file descriptors in top-scripts/af-services
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed, 10 Dec 2008 12:56:51 +0200
+
 osso-af-startup (1.74-1) unstable; urgency=low
 
   * Improved decision as to whether to define INTERNAL_MMC_MOUNTPOINT to be based

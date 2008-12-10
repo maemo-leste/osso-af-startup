@@ -34,7 +34,7 @@ echo 80 > /proc/sys/vm/lowmem_notify_low
 # adjust other kernel parameters to minimize memory consumption 
 echo 16 > /proc/sys/kernel/pty/max
 echo 256 > /proc/sys/kernel/threads-max
-echo 4096 > /proc/sys/fs/file-max
+echo 32768 > /proc/sys/fs/file-max
 echo 1 > /proc/sys/vm/swappiness
 
 # adjust flushing of memory card buffers
