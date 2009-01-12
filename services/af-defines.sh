@@ -94,9 +94,6 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
     mkdir $STATESAVEDIR
   fi
 
-  # The MyDocs directory
-  export MYDOCSDIR=$HOME/MyDocs
-
   if [ ! -d /scratchbox ]; then
     if [ ! -e /tmp/.opi.tmp -a -x /usr/bin/osso-product-info ]; then
       if [ "x$USER" = "xroot" ]; then
@@ -142,6 +139,13 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
 
   # MMC swap file location (directory)
   export MMC_SWAP_LOCATION=$MMC_MOUNTPOINT
+
+  # The MyDocs directory
+  if test "x$INTERNAL_MMC_MOUNTPOINT" = "x"; then
+    export MYDOCSDIR=$HOME/MyDocs
+  else
+    export MYDOCSDIR=$INTERNAL_MMC_MOUNTPOINT
+  fi
 
   source_if_is osso-gtk.defs
   source_if_is matchbox.defs
