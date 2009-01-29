@@ -122,7 +122,7 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
      test "x$OSSO_PRODUCT_HARDWARE" = "xRX-48" || \
      test "x$OSSO_PRODUCT_HARDWARE" = "xRX-51"; then
 
-    export INTERNAL_MMC_MOUNTPOINT='/media/mmc2'
+    export INTERNAL_MMC_MOUNTPOINT='/home/user/MyDocs'
     export INTERNAL_MMC_SWAP_LOCATION=$INTERNAL_MMC_MOUNTPOINT
     export OSSO_SWAP=$INTERNAL_MMC_MOUNTPOINT
 
