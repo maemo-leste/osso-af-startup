@@ -7,7 +7,6 @@ osso-af-startup (1.77-1~unreleased) unstable; urgency=low
 osso-af-startup (1.76-1) unstable; urgency=low
 
   * Changed MYDOCSDIR to /media/mmc2
-  * Fixes: NB#91026
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Mon, 12 Jan 2009 15:38:47 +0200
 
