@@ -57,8 +57,8 @@ install: build
 
 	# Add here commands to install the package into debian/osso-af-startup.
 #	$(MAKE) install DESTDIR=$(CURDIR)/debian/osso-af-startup
-	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init
-	cp -a $(CURDIR)/locale.rx48 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init/locale
+# 	mkdir -p $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init
+# 	cp -a $(CURDIR)/locale.rx48 $(CURDIR)/debian/osso-af-startup-locale-rx48/usr/share/osso-af-init/locale
 
 
 # Build architecture-independent files here.

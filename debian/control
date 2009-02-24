@@ -13,8 +13,3 @@ Description: Application framework top startup scripts
  af-base-apps. Also includes D-BUS session bus starting script.
  These scripts are for the target only -- they have not been necessarily
  tested in Scratchbox.
-
-Package: osso-af-startup-locale-rx48
-Architecture: all
-Depends: osso-af-startup (>= ${Source-Version})
-Description: Default language file
