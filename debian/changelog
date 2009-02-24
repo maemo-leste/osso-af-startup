@@ -1,6 +1,7 @@
 osso-af-startup (1.77-1~unreleased) unstable; urgency=low
 
   * Kimmo: Change INTERNAL_MMC_MOUNTPOINT to /home/user/MyDocs.
+  * Gabriel: Add copyright notices to remaining files and set myself as contact
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu, 29 Jan 2009 15:13:55 +0200
 

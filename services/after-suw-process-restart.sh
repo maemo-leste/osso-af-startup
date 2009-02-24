@@ -4,11 +4,11 @@
 #
 # Copyright (C) 2004-2007 Nokia Corporation. All rights reserved.
 #
-# Contact: Kimmo Hämäläinen <kimmo.hamalainen@nokia.com>
+# Contact: Gabriel Schulhof <gabriel.schulhof@nokia.com>
 #
 # This program is free software; you can redistribute it and/or
-# modify it under the terms of the GNU General Public License 
-# version 2 as published by the Free Software Foundation. 
+# modify it under the terms of the GNU General Public License
+# version 2 as published by the Free Software Foundation.
 #
 # This program is distributed in the hope that it will be useful, but
 # WITHOUT ANY WARRANTY; without even the implied warranty of
