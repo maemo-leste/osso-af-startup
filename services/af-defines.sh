@@ -92,6 +92,7 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   export STATESAVEDIR=/tmp/osso-appl-states
   if [ ! -d $STATESAVEDIR ]; then
     mkdir $STATESAVEDIR
+    chmod 01777 $STATESAVEDIR
   fi
 
   if [ ! -d /scratchbox ]; then

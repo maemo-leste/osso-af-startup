@@ -1,8 +1,9 @@
-osso-af-startup (1.77-1~unreleased) unstable; urgency=low
+osso-af-startup (1.77-1) unstable; urgency=low
 
   * Kimmo: Change INTERNAL_MMC_MOUNTPOINT to /home/user/MyDocs.
   * Gabriel: Add copyright notices to remaining files and set myself as contact
-  * Fixes: NB#98154
+  * Gabriel: Make /tmp/osso-appl-states chmod 01777 when creating it
+  * Fixes: NB#98154, NB#101170
 
  -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu, 29 Jan 2009 15:13:55 +0200
 
