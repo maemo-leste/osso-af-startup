@@ -1,3 +1,10 @@
+osso-af-startup (1.78-1) unstable; urgency=low
+
+  * Don't touch $HOME from (pre|post)(inst|rm) scripts. Use /etc/skel instead.
+  * Fixes: NB#105202 (osso-af-startup must not access $HOME )
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu, 12 Mar 2009 10:33:38 +0200
+
 osso-af-startup (1.77-1) unstable; urgency=low
 
   * Kimmo: Change INTERNAL_MMC_MOUNTPOINT to /home/user/MyDocs.

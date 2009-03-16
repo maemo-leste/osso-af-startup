@@ -1,36 +1,16 @@
 #!/bin/sh
 
-TGT=''
+HAVE_SCRATCHBOX=0
 if [ -e /targets/links/scratchbox.config ] ; then
-        . /targets/links/scratchbox.config
-        TGT=$SBOX_TARGET_DIR
+  HAVE_SCRATCHBOX=1
 fi
 
-USER=user
-GROUP=users
-HOME="$TGT/home/$USER"
+HOME=/etc/skel
+
 TMP_DIR=/var/tmp
-# LOCALE_TMP_FILE=$TMP_DIR/osso-af-init.locale.tmp
-# LOCALE_FILE=/etc/osso-af-init/locale
-# LOCALE_ORIG_FILE=/usr/share/osso-af-init/locale.orig
-# LOCALE_ORIG_FILE_OLD=/etc/osso-af-init/locale.orig
 
 rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
-
-# if test -f $LOCALE_TMP_FILE; then
-#   echo "Moving preinst locale file $LOCALE_TMP_FILE to $LOCALE_FILE"
-#   mv -f $LOCALE_TMP_FILE $LOCALE_FILE
-#   # startup wizard needs to be able to modify the locale
-#   echo "Changing ownership of $LOCALE_FILE"
-#   chown $USER:$GROUP $LOCALE_FILE
-# else
-#   echo "preinst locale file $LOCALE_TMP_FILE not found"
-# fi
-
-# # # save the original for Restore Original Settings
-# # cp -f /etc/osso-af-init/locale /etc/osso-af-init/locale.orig
-# # chown $USER:$GROUP /etc/osso-af-init/locale.orig
 
 update-rc.d af-services start 22 2 3 4 5 . stop 22 0 1 6 . > /dev/null
 update-rc.d af-startup start 50 2 3 4 . stop 21 0 1 6 . > /dev/null
@@ -45,15 +25,15 @@ if [ -w / ]; then
 fi
 
 # create MyDocs and some special directories ("if" is for Scratchbox)
-if [ -w $HOME ]; then
-  MYDOCS=$HOME/MyDocs
-  mkdir -p $MYDOCS/.sounds $MYDOCS/.videos \
-    $MYDOCS/.documents $MYDOCS/.games $MYDOCS/.images 2> /dev/null
-  if [ $? = 0 ]; then
-    chown -R $USER:$GROUP $MYDOCS
+
+if test $HAVE_SCRATCHBOX -eq 1; then
+  if [ -w $HOME ]; then
+    MYDOCS=$HOME/MyDocs
+    mkdir -p $MYDOCS/.sounds $MYDOCS/.videos \
+      $MYDOCS/.documents $MYDOCS/.games $MYDOCS/.images 2> /dev/null
+  else
+    echo "Warning: '$HOME' is not writable, couldn't create e.g. MyDocs directory"
   fi
-else
-  echo "Warning: '$HOME' is not writable, couldn't create e.g. MyDocs directory"
 fi
 
 # evil hack to ensure execute permissions
@@ -69,4 +49,3 @@ fi
 if [ -x /usr/sbin/update-sudoers ]; then
   /usr/sbin/update-sudoers
 fi
-
