@@ -51,7 +51,14 @@ else
 fi
 
 # these could have changed since last sourcing
-source_if_is locale
+if test -f $AF_INIT_DIR/locale; then
+  source $AF_INIT_DIR/locale
+else
+  unset LC_ALL
+  export LC_MESSAGES=en_GB
+  export LANG=en_GB
+  export LC_TIME=en_GB
+fi
 
 if [ -r $SESSION_BUS_ADDRESS_FILE ]; then
   source $SESSION_BUS_ADDRESS_FILE

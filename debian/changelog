@@ -1,3 +1,11 @@
+osso-af-startup (1.79-1) unstable; urgency=low
+
+  * If /etc/osso-af-init/locale is missing, undefine LC_ALL, and define LC_MESSAGES,
+    LANG, and LC_TIME as en_GB
+  * Fixes: NB#106724 (Only logical ids on UI string after creating a new SB target)
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Wed,  1 Apr 2009 11:09:38 +0300
+
 osso-af-startup (1.78-1) unstable; urgency=low
 
   * Don't touch $HOME from (pre|post)(inst|rm) scripts. Use /etc/skel instead.
