@@ -46,15 +46,14 @@ shift
 CMD=$1
 BASENAME=`basename $CMD`
 PIDFILE=$AF_PIDDIR/$BASENAME.pid
-shift
-PARAMS=$@
+CMDLINE="$@"
 
 if [ $STOP = TRUE ]; then
   echo "Stopping $SVC"
-  /usr/sbin/dsmetool -S 9 -k "$CMD $PARAMS"
+  /usr/sbin/dsmetool -S 9 -k "$CMDLINE"
 fi
 
 if [ $START = TRUE ]; then
   echo "Starting $SVC"
-  /usr/sbin/dsmetool -n -1 -t "$CMD $PARAMS"
+  /usr/sbin/dsmetool -n -1 -t "$CMDLINE"
 fi

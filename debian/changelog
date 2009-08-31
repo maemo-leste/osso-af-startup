@@ -1,3 +1,33 @@
+osso-af-startup (1.80-2) unstable; urgency=low
+
+  * Fixes: NB#133780 - osso-af-startup shouldn't be overriding core VMM
+    settings 
+
+ -- David Kedves <kedazo@gmail.com>  Mon, 31 Aug 2009 11:11:39 +0200
+
+osso-af-startup (1.80-1) unstable; urgency=low
+
+  * launch wrappers stop function didn't work properly if 
+    the command had no parameters
+    Fixes NB#111442 - osso-app-killer-cud.sh shall be checked and refreshed
+
+ -- Gabriel Schulhof <gabriel.schulhof@nokia.com>  Thu, 28 May 2009 17:17:42 +0200
+
+osso-af-startup (1.79-3) unstable; urgency=low
+
+  * Fixes: NB#109993 - AF Warning: '/etc/osso-af-init/matchbox.defs' not found 
+  * Fixes: NB#100464 - Please set SAPWOOD_DEBUG=scaling for development
+    releases
+
+ -- David Kedves <kedazo@gmail.com>  Mon, 20 Apr 2009 12:48:23 +0200
+
+osso-af-startup (1.79-2) unstable; urgency=low
+
+  * Package isn't touch the MyDocs directory 
+  * Fixes: NB#108773 - the contents of /etc/skel/MyDocs shall be empty
+
+ -- David Kedves <kedazo@gmail.com>  Thu, 09 Apr 2009 13:54:56 +0200
+
 osso-af-startup (1.79-1) unstable; urgency=low
 
   * If /etc/osso-af-init/locale is missing, undefine LC_ALL, and define LC_MESSAGES,

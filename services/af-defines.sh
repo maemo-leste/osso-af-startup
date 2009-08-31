@@ -157,9 +157,19 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
   fi
 
   source_if_is osso-gtk.defs
-  source_if_is matchbox.defs
+# There is no matchbox.defs in Fremantle
+#  source_if_is matchbox.defs
   source_if_is keyboard.defs
   source_if_is sdl.defs
+
+  # Enabling SAPWOOD_DEBUG when device is in rd-mode and in scratchbox
+  if [ -d /scratchbox ]; then
+    export SAPWOOD_DEBUG=scaling
+  elif [ -f /usr/bin/cal-tool ]; then
+    if (/usr/bin/cal-tool --get-rd-mode | grep enabled) > /dev/null; then
+      export SAPWOOD_DEBUG=scaling
+    fi
+  fi
 
   export AF_DEFINES_SOURCED=1
 

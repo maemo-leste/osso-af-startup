@@ -20,27 +20,6 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA
 
-# Exclude some UIDs from memory allocation denial.
-UIDS=`getent passwd haldaemon systemui messagebus | cut -d: -f3`
-echo "Protecting UIDs $UIDS from the memory allocation denial."
-echo $UIDS > /proc/sys/vm/lowmem_allowed_uids
-
-# activate lowmem module
-echo 92 > /proc/sys/vm/lowmem_deny_watermark
-echo 85 > /proc/sys/vm/lowmem_notify_high
-echo 512 > /proc/sys/vm/lowmem_nr_decay_pages
-echo 80 > /proc/sys/vm/lowmem_notify_low
-
-# adjust other kernel parameters to minimize memory consumption 
-echo 16 > /proc/sys/kernel/pty/max
-echo 256 > /proc/sys/kernel/threads-max
-echo 32768 > /proc/sys/fs/file-max
-echo 1 > /proc/sys/vm/swappiness
-
-# adjust flushing of memory card buffers
-echo 120 > /proc/sys/vm/dirty_ratio
-echo 60 > /proc/sys/vm/dirty_background_ratio
-
 SCRIPT=/etc/osso-af-init/real-af-services
 
 case "$1" in

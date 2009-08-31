@@ -1,12 +1,5 @@
 #!/bin/sh
 
-HAVE_SCRATCHBOX=0
-if [ -e /targets/links/scratchbox.config ] ; then
-  HAVE_SCRATCHBOX=1
-fi
-
-HOME=/etc/skel
-
 TMP_DIR=/var/tmp
 
 rm -f /etc/osso-af-init/gconf-dir
@@ -21,19 +14,7 @@ update-rc.d zzzremove-first-boot-flag start 99 S 1 2 3 4 5 . stop 01 0 1 2 3 4 5
 # create memory card mount points ("if" is for Scratchbox)
 if [ -w / ]; then
   mkdir -p /media/mmc1 2> /dev/null
-  mkdir -p /media/mmc2 2> /dev/null
-fi
-
-# create MyDocs and some special directories ("if" is for Scratchbox)
-
-if test $HAVE_SCRATCHBOX -eq 1; then
-  if [ -w $HOME ]; then
-    MYDOCS=$HOME/MyDocs
-    mkdir -p $MYDOCS/.sounds $MYDOCS/.videos \
-      $MYDOCS/.documents $MYDOCS/.games $MYDOCS/.images 2> /dev/null
-  else
-    echo "Warning: '$HOME' is not writable, couldn't create e.g. MyDocs directory"
-  fi
+  mkdir -p /home/user/MyDocs 2> /dev/null
 fi
 
 # evil hack to ensure execute permissions
