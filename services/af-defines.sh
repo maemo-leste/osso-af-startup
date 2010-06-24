@@ -60,6 +60,8 @@ else
   export LC_TIME=en_GB
 fi
 
+export LANGUAGE=$LANG:en_GB
+
 if [ -r $SESSION_BUS_ADDRESS_FILE ]; then
   source $SESSION_BUS_ADDRESS_FILE
 fi

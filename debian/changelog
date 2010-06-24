@@ -1,3 +1,11 @@
+osso-af-startup (1.80-3) unstable; urgency=low
+
+  * Fixes: NB#152017 - [PATCH] Maemo should use en_GB as default fallback in locales
+  * Fixes: MB#7256 - Maemo should use en_GB as default fallback in locales
+  * Patch supplied by Juan A. Suarez Romero <jasuarez@igalia.com>
+
+ -- Gary Birkett <gary.birkett@collabora.co.uk>  Thu, 24 Jun 2010 11:11:39 +0000
+
 osso-af-startup (1.80-2) unstable; urgency=low
 
   * Fixes: NB#133780 - osso-af-startup shouldn't be overriding core VMM
