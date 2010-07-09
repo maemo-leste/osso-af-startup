@@ -1,3 +1,9 @@
+osso-af-startup (1.80-4) unstable; urgency=low
+
+  * Fixes: NB#179178 - Startup Wizard - Unlocalized Startup wizard
+
+ -- Adam Endrodi <adam.endrodi@blumsoft.eu>  Fri, 09 Jul 2010 11:32:24 +0300
+
 osso-af-startup (1.80-2) unstable; urgency=low
 
   * Fixes: NB#133780 - osso-af-startup shouldn't be overriding core VMM
