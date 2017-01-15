@@ -5,11 +5,11 @@ TMP_DIR=/var/tmp
 rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 
-update-rc.d af-services start 22 2 3 4 5 . stop 22 0 1 6 . > /dev/null
-update-rc.d af-startup start 50 2 3 4 . stop 21 0 1 6 . > /dev/null
-update-rc.d af-base-apps start 60 2 3 4 . stop 20 0 1 5 6 . > /dev/null
-update-rc.d hwclock start 01 S 1 2 3 4 5 . stop 02 0 1 2 3 4 5 6 . > /dev/null
-update-rc.d zzzremove-first-boot-flag start 99 S 1 2 3 4 5 . stop 01 0 1 2 3 4 5 6 . > /dev/null
+update-rc.d af-services defaults > /dev/null
+update-rc.d af-startup defaults > /dev/null
+update-rc.d af-base-apps defaults > /dev/null
+#update-rc.d hwclock start 01 S 1 2 3 4 5 . stop 02 0 1 2 3 4 5 6 . > /dev/null
+update-rc.d zzzremove-first-boot-flag defaults > /dev/null
 
 # create memory card mount points ("if" is for Scratchbox)
 if [ -w / ]; then
