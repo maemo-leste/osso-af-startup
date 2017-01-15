@@ -21,8 +21,8 @@
 # 02110-1301 USA
 ### BEGIN INIT INFO
 # Provides:		af-services
-# Required-Start:	$mce
-# Required-Stop:	$mce
+# Required-Start:	dbus
+# Required-Stop:	dbus
 # Default-Start:	2 3 4 5
 # Default-Stop:		0 1 6
 # Short-Description:	af-services

@@ -21,8 +21,8 @@
 # 02110-1301 USA
 ### BEGIN INIT INFO
 # Provides:		af-base-apps
-# Required-Start:	$hildon-desktop
-# Required-Stop:	$hildon-desktop
+# Required-Start:	hildon-desktop
+# Required-Stop:	hildon-desktop
 # Default-Start:	2 3 4 5
 # Default-Stop:		0 1 6
 # Short-Description:	af-base-apps
