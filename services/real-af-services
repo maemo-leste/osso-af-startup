@@ -23,8 +23,8 @@
 case "$1" in
 start)
 
-  source $AF_INIT_DIR/temp-reaper-startup.sh start
-#  source $AF_INIT_DIR/dbus-sessionbus.sh start
+  . $AF_INIT_DIR/temp-reaper-startup.sh start
+#  . $AF_INIT_DIR/dbus-sessionbus.sh start
 
   # Wait until X is ready
   INC=1
@@ -42,7 +42,7 @@ start)
     /etc/init.d/at-spi start
   fi
 
-  source $AF_INIT_DIR/sapwood-server.sh start
+  . $AF_INIT_DIR/sapwood-server.sh start
 
   source_if_is matchbox.sh start
 
@@ -60,9 +60,9 @@ start)
     if [ -x $AF_INIT_DIR/osso-media-server.sh ]; then
       # media server wants the session bus
       /usr/sbin/waitdbus session
-      source $SESSION_BUS_ADDRESS_FILE
+      . $SESSION_BUS_ADDRESS_FILE
 
-      source $AF_INIT_DIR/osso-media-server.sh start
+      . $AF_INIT_DIR/osso-media-server.sh start
       unset LD_PRELOAD
     fi
   fi
@@ -71,10 +71,10 @@ start)
 stop)
 
   if [ -x $AF_INIT_DIR/osso-media-server.sh ]; then
-    source $AF_INIT_DIR/osso-media-server.sh stop
+    . $AF_INIT_DIR/osso-media-server.sh stop
     unset LD_PRELOAD
   fi
-  source $AF_INIT_DIR/sapwood-server.sh stop
+  . $AF_INIT_DIR/sapwood-server.sh stop
 
   source_if_is matchbox.sh stop
 
@@ -82,9 +82,9 @@ stop)
     /etc/init.d/at-spi stop
   fi
 
-#  source $AF_INIT_DIR/dbus-sessionbus.sh stop
-  source $AF_INIT_DIR/gconf-daemon.sh stop
-  source $AF_INIT_DIR/temp-reaper-startup.sh stop
+#  . $AF_INIT_DIR/dbus-sessionbus.sh stop
+  . $AF_INIT_DIR/gconf-daemon.sh stop
+  . $AF_INIT_DIR/temp-reaper-startup.sh stop
 
   ;;
 restart)

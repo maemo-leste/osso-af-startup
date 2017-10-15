@@ -28,26 +28,26 @@ fi
 
 # this is first boot, so VKB is running
 if [ -f $DIR/keyboard.defs ]; then
-  source $DIR/keyboard.defs
+  . $DIR/keyboard.defs
 fi
-source $DIR/keyboard.sh stop
+. $DIR/keyboard.sh stop
 if [ -x /etc/init.d/ke-recv ]; then
   sudo /etc/init.d/ke-recv stop
 fi
-source $DIR/dbus-sessionbus.sh stop
+. $DIR/dbus-sessionbus.sh stop
 
 # wait for the D-BUS session bus to die
 sleep 1
 
 if [ -f $DIR/osso-application-installer.defs ]; then
-  source $DIR/osso-application-installer.defs
+  . $DIR/osso-application-installer.defs
 fi
 # browser needs some definitions, because we are restarting the session bus
 if [ -f $DIR/browser.defs ]; then
-  source $DIR/browser.defs
+  . $DIR/browser.defs
 fi
-source $DIR/dbus-sessionbus.sh start
-source $DIR/af-defines.sh ;# re-read session bus address
+. $DIR/dbus-sessionbus.sh start
+. $DIR/af-defines.sh ;# re-read session bus address
 /usr/sbin/waitdbus session
 if [ -x /etc/init.d/maemo-launcher ]; then
   /etc/init.d/maemo-launcher restart
@@ -60,9 +60,9 @@ if [ -x /etc/init.d/osso-systemui ]; then
 fi
 
 if [ -x $DIR/osso-connectivity-ui.sh ]; then
-  source $DIR/osso-connectivity-ui.sh start
+  . $DIR/osso-connectivity-ui.sh start
 fi
-source $DIR/keyboard.sh start
+. $DIR/keyboard.sh start
 if [ -x /etc/init.d/alarmd ]; then
   sudo /etc/init.d/alarmd start
 fi

@@ -54,7 +54,7 @@ start)
     echo "$0: Error, the D-BUS session bus did not start"
     exit 2
   fi
-  source $SESSION_BUS_ADDRESS_FILE
+  . $SESSION_BUS_ADDRESS_FILE
 
   source_if_is tracker.sh start
 
@@ -78,16 +78,16 @@ start)
 
     if [ -x $AF_INIT_DIR/startup-wizard.sh ]; then
       wizback_method advance 1
-      source $AF_INIT_DIR/startup-wizard.sh start
+      . $AF_INIT_DIR/startup-wizard.sh start
 
       if [ "x$AFTER_SUW_RESTART_NEEDED" != "x0" ]; then
-      	source $AF_INIT_DIR/af-defines.sh ;# re-read locale variables
+      	. $AF_INIT_DIR/af-defines.sh ;# re-read locale variables
       	# show progress animation
       	if ! [ -f /etc/osso-af-init/wizard-background-defs.sh ]; then
         	/usr/sbin/anim-shower 17000 &
       	fi
       	# restart processes because the locale might have changed
-      	source $AF_INIT_DIR/after-suw-process-restart.sh
+      	. $AF_INIT_DIR/after-suw-process-restart.sh
       fi
     else
       ADVANCE_STEPS=`expr $ADVANCE_STEPS + 1`

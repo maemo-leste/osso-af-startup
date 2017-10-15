@@ -34,7 +34,7 @@ source_if_is()
   shift
 
   if [ -f $farg ]; then
-    source $farg $@
+    . $farg $@
   else
     echo "AF Warning: '$farg' not found"
   fi
@@ -52,7 +52,7 @@ fi
 
 # these could have changed since last sourcing
 if test -f $AF_INIT_DIR/locale; then
-  source $AF_INIT_DIR/locale
+  . $AF_INIT_DIR/locale
 else
   unset LC_ALL
   export LC_MESSAGES=en_GB
@@ -61,7 +61,7 @@ else
 fi
 
 if [ -r $SESSION_BUS_ADDRESS_FILE ]; then
-  source $SESSION_BUS_ADDRESS_FILE
+  . $SESSION_BUS_ADDRESS_FILE
 fi
 # Note: TMPDIR uses flash but UI states are saved to RAM
 export TMPDIR=/var/tmp ;# needed here because sudo clears this
@@ -116,7 +116,7 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
     fi
     if [ -r /tmp/.opi.tmp ]; then
       VNAMES=`awk -F '=' '{print $1}' < /tmp/.opi.tmp`
-      source /tmp/.opi.tmp
+      . /tmp/.opi.tmp
       export $VNAMES
       unset VNAMES
     fi

@@ -24,7 +24,7 @@ CONNECTIVITY_UI_SCRIPT=$AF_INIT_DIR/osso-connectivity-ui.sh
 case "$1" in
 start)
 
-  source $SESSION_BUS_ADDRESS_FILE
+  . $SESSION_BUS_ADDRESS_FILE
 
   if [ -f /tmp/run-osso-backup-finish-restore ]; then
     $AF_INIT_DIR/osso-backup-finish-restore.sh
@@ -32,7 +32,7 @@ start)
   fi
 
   if [ -x $CONNECTIVITY_UI_SCRIPT ]; then
-    source $CONNECTIVITY_UI_SCRIPT start
+    . $CONNECTIVITY_UI_SCRIPT start
   fi
 
   if [ -x /usr/bin/hwkbd-reconfig ]; then
@@ -53,8 +53,8 @@ start)
   ;;
 stop)
 
-  source $AF_INIT_DIR/clipboard.sh stop
-  source $AF_INIT_DIR/keyboard.sh stop
+  . $AF_INIT_DIR/clipboard.sh stop
+  . $AF_INIT_DIR/keyboard.sh stop
 
   # Kill controlpanel if it is still running, fixes NB#83038
   CPANELPID=`pidof controlpanel`
@@ -63,7 +63,7 @@ stop)
   fi
 
   if [ -x $CONNECTIVITY_UI_SCRIPT ]; then
-    source $CONNECTIVITY_UI_SCRIPT stop
+    . $CONNECTIVITY_UI_SCRIPT stop
   fi
 
   ;;

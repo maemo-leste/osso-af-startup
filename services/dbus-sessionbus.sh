@@ -33,7 +33,7 @@ SVC="D-BUS session bus daemon"
 case "$1" in
 start)
   if [ "x$SBOX" = "x" ]; then
-    source $LAUNCHWRAPPER_NICE_KILL start "$SVC" $PROG $PARAMS
+    . $LAUNCHWRAPPER_NICE_KILL start "$SVC" $PROG $PARAMS
     echo "export DBUS_SESSION_BUS_ADDRESS=unix:path=/tmp/session_bus_socket" \
          > $SESSION_BUS_ADDRESS_FILE
   else
@@ -49,7 +49,7 @@ start)
   ;;
 stop)
   # giving parameter also here so that dsmetool works...
-  source $LAUNCHWRAPPER_NICE_KILL stop "$SVC" $PROG $PARAMS
+  . $LAUNCHWRAPPER_NICE_KILL stop "$SVC" $PROG $PARAMS
   ;;
 *)
   echo "Usage: $0 {start|stop}"
