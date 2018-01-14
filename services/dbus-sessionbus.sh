@@ -24,7 +24,7 @@ if [ -e /targets/links/scratchbox.config ]; then
   PARAMS="--session --print-address=2"
 else
   SBOX=''
-  PARAMS="--session"
+  PARAMS="--session --address=unix:path=/tmp/session_bus_socket"
 fi
 
 PROG=/usr/bin/dbus-daemon
