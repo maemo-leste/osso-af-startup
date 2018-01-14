@@ -1,3 +1,10 @@
+osso-af-startup (1.81.0) unstable; urgency=medium
+
+  * add dependency to maemo-system-services, needed for session bus access
+  * set session bus address to unix:path=/tmp/session_bus_socket
+
+ -- Ivaylo Dimitrov <freemangordon@abv.bg>  Sun, 14 Jan 2018 16:35:32 +0200
+
 osso-af-startup (1.80.1) unstable; urgency=medium
 
   * replace source calls in scripts with .
