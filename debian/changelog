@@ -1,3 +1,9 @@
+osso-af-startup (1.81.2) unstable; urgency=medium
+
+  * Remove troublesome initscripts.
+
+ -- Ivan J. <parazyd@dyne.org>  Mon, 26 Feb 2018 21:35:00 +0100
+
 osso-af-startup (1.81.1) unstable; urgency=medium
 
   * restore session bus starting
