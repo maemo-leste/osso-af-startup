@@ -1,3 +1,9 @@
+osso-af-startup (1.81.3) unstable; urgency=medium
+
+  * Make af-services depend on dsme
+
+ -- Merlijn B. W. Wajer <merlijn@wizzup.org>  Sun, 02 Sep 2018 23:14:25 +0200
+
 osso-af-startup (1.81.2) unstable; urgency=medium
 
   * Remove troublesome initscripts.
