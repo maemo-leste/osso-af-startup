@@ -6,8 +6,8 @@ rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 
 update-rc.d af-services defaults > /dev/null
-update-rc.d af-startup defaults > /dev/null
-update-rc.d af-base-apps defaults > /dev/null
+#update-rc.d af-startup defaults > /dev/null
+#update-rc.d af-base-apps defaults > /dev/null
 #update-rc.d hwclock start 01 S 1 2 3 4 5 . stop 02 0 1 2 3 4 5 6 . > /dev/null
 update-rc.d zzzremove-first-boot-flag defaults > /dev/null
 
