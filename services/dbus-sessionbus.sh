@@ -19,15 +19,17 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
 # 02110-1301 USA
 
-PARAMS="--session --print-address=2"
-
-PROG=/usr/bin/dbus-daemon
+# TODO: to not hardcode this path?
+PROG=/etc/osso-af-init/dbus-wrapper.sh
+#PROG=/usr/bin/dbus-daemon
 SVC="D-BUS session bus daemon"
 
 case "$1" in
 start)
-  . $LAUNCHWRAPPER_NICE_KILL start "$SVC" $PROG \
-                           $PARAMS 2>${SESSION_BUS_ADDRESS_FILE}.in
+  . $LAUNCHWRAPPER_NICE_KILL start "$SVC" $PROG
+  # XXX: This sleep is hacky, we should perhaps just use a fifo in the
+  # dbus-wrapper, so that the cat will block instead
+  sleep 5
   if [ -r ${SESSION_BUS_ADDRESS_FILE}.in ]; then
     TMP=`cat ${SESSION_BUS_ADDRESS_FILE}.in`
     echo "export DBUS_SESSION_BUS_ADDRESS=$TMP" > $SESSION_BUS_ADDRESS_FILE
@@ -36,7 +38,7 @@ start)
   ;;
 stop)
   # giving parameter also here so that dsmetool works...
-  . $LAUNCHWRAPPER_NICE_KILL stop "$SVC" $PROG $PARAMS
+  . $LAUNCHWRAPPER_NICE_KILL stop "$SVC" $PROG
   ;;
 *)
   echo "Usage: $0 {start|stop}"
