@@ -23,9 +23,6 @@
 case "$1" in
 start)
 
-  . $AF_INIT_DIR/temp-reaper-startup.sh start
-  . $AF_INIT_DIR/dbus-sessionbus.sh start
-
   # Wait until X is ready
   INC=1
   while [ ! -e /tmp/.X11-unix/X0 ]; do
@@ -82,9 +79,7 @@ stop)
     /etc/init.d/at-spi stop
   fi
 
-  . $AF_INIT_DIR/dbus-sessionbus.sh stop
   . $AF_INIT_DIR/gconf-daemon.sh stop
-  . $AF_INIT_DIR/temp-reaper-startup.sh stop
 
   ;;
 restart)

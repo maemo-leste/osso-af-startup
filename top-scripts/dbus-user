@@ -1,0 +1,15 @@
+#!/sbin/openrc-run
+# Copyright 1999-2018 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+depend() {
+    need dbus dsme
+}
+
+start() {
+    su - user /etc/osso-af-init/real-af-dbus start
+}
+
+stop() {
+    su - user /etc/osso-af-init/real-af-dbus stop
+}
