@@ -1,3 +1,12 @@
+osso-af-startup (1.81.4) unstable; urgency=medium
+
+  * Split up af-services in dbus-user and af-services.
+    This is required to fix dependencies on parallel boot that don't work
+    well, by splitting this up, we do not need parallel boot and xsession
+    scripts should not break.
+
+ -- Merlijn B. W. Wajer <merlijn@wizzup.org>  Tue, 04 Sep 2018 21:09:12 +0200
+
 osso-af-startup (1.81.3) unstable; urgency=medium
 
   * Make af-services depend on dsme
