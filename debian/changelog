@@ -1,3 +1,9 @@
+osso-af-startup (1.81.7) unstable; urgency=medium
+
+  * Another attempt to fix insserv errors related to dbus-user
+
+ -- Merlijn B. W. Wajer <merlijn@wizzup.org>  Wed, 05 Sep 2018 12:20:02 +0200
+
 osso-af-startup (1.81.6) unstable; urgency=medium
 
   * Attempt to fix insserv errors related to dbus-user
