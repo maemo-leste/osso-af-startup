@@ -79,7 +79,7 @@ binary-arch: build install
 #	dh_installemacsen
 #	dh_installpam
 #	dh_installmime
-#	dh_installinit
+	dh_installinit --name=dbus-user --no-start
 #	dh_installcron
 #	dh_installinfo
 #	dh_installman
