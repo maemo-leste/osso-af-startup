@@ -7,7 +7,7 @@ Standards-Version: 3.6.0
 
 Package: osso-af-startup
 Architecture: all
-Depends: osso-af-utils (>= 1.16-1), dbus (>= 0.61-osso5), sudo, maemo-system-services (>= 0.5.0)
+Depends: osso-af-utils (>= 1.16-1), dbus (>= 0.61-osso5), sudo, maemo-system-services (>= 0.5.0), mce
 Description: Application framework top startup scripts
  Application framework startup scripts af-services, af-startup and
  af-base-apps. Also includes D-BUS session bus starting script.
