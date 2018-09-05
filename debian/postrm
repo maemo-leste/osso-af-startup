@@ -1,7 +1,7 @@
 #!/bin/sh
 
 update-rc.d -f af-services remove > /dev/null
-update-rc.d -f af-startup remove > /dev/null
-update-rc.d -f af-base-apps remove > /dev/null
-update-rc.d -f hwclock remove > /dev/null
+#update-rc.d -f af-startup remove > /dev/null
+#update-rc.d -f af-base-apps remove > /dev/null
+#update-rc.d -f hwclock remove > /dev/null
 update-rc.d -f zzzremove-first-boot-flag remove > /dev/null

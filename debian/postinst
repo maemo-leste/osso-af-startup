@@ -5,6 +5,7 @@ TMP_DIR=/var/tmp
 rm -f /etc/osso-af-init/gconf-dir
 ln -s /var/lib/gconf /etc/osso-af-init/gconf-dir
 
+update-rc.d dbus-user defaults > /dev/null
 update-rc.d af-services defaults > /dev/null
 #update-rc.d af-startup defaults > /dev/null
 #update-rc.d af-base-apps defaults > /dev/null
