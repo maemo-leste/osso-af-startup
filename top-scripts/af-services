@@ -21,7 +21,7 @@
 # 02110-1301 USA
 ### BEGIN INIT INFO
 # Provides:		af-services
-# Required-Start:	dbus xorg dsme dbus-user mce
+# Required-Start:	dbus xorg dsme dbus-user
 # Required-Stop:	dbus
 # Default-Start:	2 3 4 5
 # Default-Stop:		0 1 6
