@@ -1,3 +1,9 @@
+osso-af-startup (1.81.9) unstable; urgency=medium
+
+  * Remove hwclock init script
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Mon, 17 Dec 2018 20:53:52 +0300
+
 osso-af-startup (1.81.8) unstable; urgency=medium
 
   * Remove dependency on mce again, it is not required
