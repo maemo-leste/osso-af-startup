@@ -2,7 +2,7 @@ Source: osso-af-startup
 Section: base
 Priority: required
 Maintainer: Gabriel Schulhof <gabriel.schulhof@nokia.com>
-Build-Depends: debhelper (>= 4.0.0)
+Build-Depends: debhelper (>= 10)
 Standards-Version: 3.6.0
 
 Package: osso-af-startup
