@@ -27,3 +27,5 @@ TMP_DIR=/var/tmp
 
 mkdir -p $TMP_DIR
 chmod 1777 $TMP_DIR
+
+#DEBHELPER#
