@@ -12,12 +12,6 @@ update-rc.d af-services defaults > /dev/null
 #update-rc.d hwclock start 01 S 1 2 3 4 5 . stop 02 0 1 2 3 4 5 6 . > /dev/null
 update-rc.d zzzremove-first-boot-flag defaults > /dev/null
 
-# create memory card mount points ("if" is for Scratchbox)
-if [ -w / ]; then
-  mkdir -p /media/mmc1 2> /dev/null
-  mkdir -p /home/user/MyDocs 2> /dev/null
-fi
-
 # evil hack to ensure execute permissions
 chmod +x /etc/osso-af-init/get-devlock.sh
 
@@ -26,10 +20,6 @@ line="source /etc/osso-af-init/af-defines.sh"
 if ! grep -F -q "$line" /etc/profile; then
   echo "+$line"
   echo "$line" >> /etc/profile
-fi
-
-if [ -x /usr/sbin/update-sudoers ]; then
-  /usr/sbin/update-sudoers
 fi
 
 #DEBHELPER#

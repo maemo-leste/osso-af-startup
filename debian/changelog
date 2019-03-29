@@ -1,3 +1,9 @@
+osso-af-startup (1.81.10) unstable; urgency=medium
+
+  * Remove obsolete sudoers and mkdir calls in postinst.
+
+ -- Ivan J. <parazyd@dyne.org>  Fri, 29 Mar 2019 17:54:03 +0100
+
 osso-af-startup (1.81.9) unstable; urgency=medium
 
   * Remove hwclock init script
