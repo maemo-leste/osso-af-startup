@@ -151,7 +151,9 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
 
   # The MyDocs directory
   if test "x$INTERNAL_MMC_MOUNTPOINT" = "x"; then
-    export MYDOCSDIR=$HOME/MyDocs
+    if grep "$HOME/MyDocs" /proc/mounts > /dev/null; then
+      export MYDOCSDIR=$HOME/MyDocs
+    fi
   else
     export MYDOCSDIR=$INTERNAL_MMC_MOUNTPOINT
   fi
