@@ -1,14 +1,14 @@
 #!/sbin/openrc-run
-
-# Copyright 1999-2018 Gentoo Foundation
-# Distributed under the terms of the GNU General Public License v2
-
-description="This start the dbus user session that maemo services depend on"
-name="dbus user session"
-
-depend() {
-    need dbus dsme
-}
+### BEGIN INIT INFO
+# Provides:          dbus-user
+# Required-Start:    $remote_fs dbus dsme
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: D-Bus User Message Bus
+# Description:       This start the D-Bus user session
+#                    that Maemo services depend on
+### END INIT INFO
 
 start() {
     ebegin "Starting dbus user session"
