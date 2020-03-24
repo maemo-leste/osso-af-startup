@@ -1,0 +1,14 @@
+[Unit]
+Description=D-Bus User Message Bus Socket
+
+[Socket]
+# We need the trailing '__' chars here because of a bug in D-Bus which adds a
+# junk to DBUS_SESSION_BUS_ADDRESS variable if we don't have enough characters
+# in abstract socket address. This leads to inability to start services using
+# D-Bus daemon.
+ListenStream=@/tmp/session_bus_socket.user__
+ExecStartPost=-/bin/systemctl set-environment DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/session_bus_socket.user__
+ExecStartPost=-/bin/bash -c 'echo "export DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/session_bus_socket.user__" > /tmp/session_bus_address.user'
+
+[Install]
+WantedBy=sockets.target

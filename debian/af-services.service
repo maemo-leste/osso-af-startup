@@ -1,0 +1,15 @@
+[Unit]
+Description=Application Framework services
+Requires=dsme.service mce.service xorg.service
+After=dsme.service mce.service xorg.service
+
+[Service]
+ExecStart=/etc/osso-af-init/real-af-services start
+ExecStartPost=+/etc/osso-af-init/progress-stop-if-devlock.sh
+ExecStop=/etc/osso-af-init/real-af-services stop
+RemainAfterExit=yes
+Type=oneshot
+User=user
+
+[Install]
+WantedBy=graphical.target
