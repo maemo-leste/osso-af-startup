@@ -1,3 +1,11 @@
+osso-af-startup (1.81.12) unstable; urgency=medium
+
+  * Add LSB header to init script
+  * Migrate to dh build sequencer
+  * Add systemd support
+
+ -- Arthur Demchenkov <spinal.by@gmail.com>  Tue, 24 Mar 2020 16:59:18 +0300
+
 osso-af-startup (1.81.11) unstable; urgency=medium
 
   * Do not set MYDOCSDIR unconditionally, will make file manager play nicer
