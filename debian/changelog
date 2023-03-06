@@ -1,3 +1,9 @@
+osso-af-startup (1.81.12) unstable; urgency=medium
+
+  * dbus-user.init: Use elogind
+
+ -- Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>  Mon, 06 Mar 2023 18:22:32 +0200
+
 osso-af-startup (1.81.11) unstable; urgency=medium
 
   * Do not set MYDOCSDIR unconditionally, will make file manager play nicer
