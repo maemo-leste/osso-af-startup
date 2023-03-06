@@ -8,6 +8,7 @@ name="dbus user session"
 
 depend() {
     need dbus dsme
+    use elogind
 }
 
 start() {
