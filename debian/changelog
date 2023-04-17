@@ -1,3 +1,10 @@
+osso-af-startup (1.81.13) unstable; urgency=medium
+
+  * real-af-services: Remove references to some obsolete scripts
+  * dbus-user.init: use runuser instead of su, we don't want PAM session
+
+ -- Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>  Mon, 17 Apr 2023 14:06:18 +0300
+
 osso-af-startup (1.81.12) unstable; urgency=medium
 
   * dbus-user.init: Use elogind
