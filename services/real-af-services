@@ -39,8 +39,6 @@ start)
     /etc/init.d/at-spi start
   fi
 
-  . $AF_INIT_DIR/sapwood-server.sh start
-
   source_if_is matchbox.sh start
 
   # wait until system D-BUS is ready (some stuff started by init
@@ -59,7 +57,7 @@ start)
       /usr/sbin/waitdbus session
       . $SESSION_BUS_ADDRESS_FILE
 
-      . $AF_INIT_DIR/osso-media-server.sh start
+      source_if_is osso-media-server.sh start
       unset LD_PRELOAD
     fi
   fi
@@ -71,15 +69,12 @@ stop)
     . $AF_INIT_DIR/osso-media-server.sh stop
     unset LD_PRELOAD
   fi
-  . $AF_INIT_DIR/sapwood-server.sh stop
 
   source_if_is matchbox.sh stop
 
   if [ -x /etc/init.d/at-spi ]; then
     /etc/init.d/at-spi stop
   fi
-
-  . $AF_INIT_DIR/gconf-daemon.sh stop
 
   ;;
 restart)
