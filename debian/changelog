@@ -1,3 +1,9 @@
+osso-af-startup (1.81.14) unstable; urgency=medium
+
+  * dbus-user.init: use bash instead of the user shell to run scripts
+
+ -- Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>  Wed, 30 Aug 2023 16:27:33 +0300
+
 osso-af-startup (1.81.13) unstable; urgency=medium
 
   * real-af-services: Remove references to some obsolete scripts
