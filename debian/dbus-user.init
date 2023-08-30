@@ -13,10 +13,10 @@ depend() {
 
 start() {
     ebegin "Starting dbus user session"
-    runuser - user /etc/osso-af-init/real-af-dbus start
+    runuser -ls /bin/bash user /etc/osso-af-init/real-af-dbus start
 }
 
 stop() {
     eend "Stopping dbus user session"
-    runuser - user /etc/osso-af-init/real-af-dbus stop
+    runuser -ls /bin/bash user /etc/osso-af-init/real-af-dbus stop
 }
