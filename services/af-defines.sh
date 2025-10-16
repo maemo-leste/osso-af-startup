@@ -78,7 +78,7 @@ if [ "x$AF_DEFINES_SOURCED" = "x" ]; then
 
   if [ ! -e /targets/links/scratchbox.config ]; then
     if [ "x$DISPLAY" = "x" ]; then
-      export DISPLAY=:0.0
+      export DISPLAY=:0
     fi
   fi
   export LAUNCHWRAPPER=$AF_INIT_DIR/launch-wrapper.sh
