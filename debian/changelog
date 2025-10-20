@@ -1,3 +1,10 @@
+osso-af-startup (1.81.15) unstable; urgency=medium
+
+  * af-services.sh: set DISPLAY to :0 to make ssh sapwood theme render ok
+    (see https://git.maemo.org/leste/osso-af-startup/pulls/5)
+
+ -- Merlijn Wajer <merlijn@wizzup.org>  Mon, 20 Oct 2025 20:27:18 +0200
+
 osso-af-startup (1.81.14) unstable; urgency=medium
 
   * dbus-user.init: use bash instead of the user shell to run scripts
