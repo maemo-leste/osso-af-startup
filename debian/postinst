@@ -16,7 +16,7 @@ update-rc.d zzzremove-first-boot-flag defaults > /dev/null
 chmod +x /etc/osso-af-init/get-devlock.sh
 
 # AF environment is included to every shell
-line="source /etc/osso-af-init/af-defines.sh"
+line=". /etc/osso-af-init/af-defines.sh"
 if ! grep -F -q "$line" /etc/profile; then
   echo "+$line"
   echo "$line" >> /etc/profile
