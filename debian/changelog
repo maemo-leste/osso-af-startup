@@ -1,3 +1,10 @@
+osso-af-startup (1.81.16) unstable; urgency=medium
+
+  * debian/postint: boot error on excalibur: /etc/profile: source: not found
+    (see https://github.com/k3s-io/k3s/pull/6614/files)
+
+ -- Sander <code@kroket.io>  Wed, 21 Jan 2026 20:27:18 +0200
+
 osso-af-startup (1.81.15) unstable; urgency=medium
 
   * af-services.sh: set DISPLAY to :0 to make ssh sapwood theme render ok
